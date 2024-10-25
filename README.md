@@ -1,5 +1,5 @@
 
-# GoVegan
+# GoVegan Website
 
 This project originated from my specialization in User Experience Design (UX) at the California Institute of Arts, completed through the Coursera platform. Initially developed as a UI Design project, GoVegan was created to explore innovative solutions that simplify food delivery for a fictional vegan restaurant. Using solid UX principles and extensive research, I aimed to design an intuitive and engaging user experience. Now, I am bringing this design to life in code, with the goal of testing it with users to validate the effectiveness of the solution.
 
@@ -16,9 +16,9 @@ This project originated from my specialization in User Experience Design (UX) at
 ## Features
 
 - Browse a menu of delicious vegan dishes.
-- Order food for delivery in Maputo.
+- Simulate Order food for delivery in Maputo.
 - User-friendly and responsive UI, optimized for both desktop and mobile.
-- Real-time cart and order preview.
+- Simulate order preview.
 
 ## Tech Stack
 
