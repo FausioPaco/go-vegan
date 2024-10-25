@@ -30,7 +30,7 @@ This project originated from my specialization in User Experience Design (UX) at
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/GoVegan.git
+   git clone https://github.com/FausioPaco/GoVegan.git
    ```
 
 2. Navigate to the project directory:
@@ -42,13 +42,13 @@ This project originated from my specialization in User Experience Design (UX) at
 3. Install dependencies:
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 4. Start the development server:
 
    ```bash
-   npm start
+   pnpm start
    ```
 
 5. Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
