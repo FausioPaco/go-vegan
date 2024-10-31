@@ -1,14 +1,32 @@
-function App() {
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import DefaultLayout from './layouts/DefaultLayout';
+import Home from './pages/Home';
+
+const About = lazy(() => import('./pages/About'));
+
+const App = () => {
   return (
-    <>
-      <div className="container flex flex-col items-center justify-center">
-        <h1 className="font-serif text-lg font-bold text-primary-600">
-          Bitter Font
-        </h1>
-        <p className="font-sans text-base text-grey-600">Satoshi font</p>
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<DefaultLayout />}>
+        <Route index element={<Home />} />
+        <Route
+          path="about"
+          element={
+            <Suspense
+              fallback={
+                <>
+                  <span>Loading...</span>
+                </>
+              }
+            >
+              <About />
+            </Suspense>
+          }
+        />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
