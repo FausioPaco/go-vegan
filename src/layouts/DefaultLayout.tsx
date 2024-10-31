@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 const DefaultLayout = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex min-h-screen w-full flex-col items-stretch">
       <header>Header</header>
       <main className="flex-1">
         <Outlet />
