@@ -63,6 +63,13 @@ export default {
       sans: ['Satoshi-Variable', 'sans-serif'],
       serif: ['Bitter Variable', 'serif'],
     },
+
+    keyframes: () => ({
+      fadeIn: {
+        '0%': { opacity: '0' },
+        '100%': { opacity: '100%' },
+      },
+    }),
   },
   plugins: [],
 } satisfies Config;
