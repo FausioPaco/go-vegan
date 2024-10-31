@@ -1,4 +1,3 @@
-
 # GoVegan Website
 
 This project originated from my specialization in User Experience Design (UX) at the California Institute of Arts, completed through the Coursera platform. Initially developed as a UI Design project, GoVegan was created to explore innovative solutions that simplify food delivery for a fictional vegan restaurant. Using solid UX principles and extensive research, I aimed to design an intuitive and engaging user experience. Now, I am bringing this design to life in code, with the goal of testing it with users to validate the effectiveness of the solution.
@@ -36,7 +35,7 @@ This project originated from my specialization in User Experience Design (UX) at
 2. Navigate to the project directory:
 
    ```bash
-   cd GoVegan
+   cd go-vegan
    ```
 
 3. Install dependencies:
@@ -48,10 +47,8 @@ This project originated from my specialization in User Experience Design (UX) at
 4. Start the development server:
 
    ```bash
-   pnpm start
+   pnpm dev
    ```
-
-5. Open [http://localhost:3000](http://localhost:3000) to view the app in your browser.
 
 ## Usage
 
@@ -67,7 +64,7 @@ This project uses **Vitest** for unit and integration testing.
 To run the tests:
 
 ```bash
-npm test
+pnpm test
 ```
 
 ## Contributing
