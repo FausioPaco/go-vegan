@@ -1,6 +1,11 @@
-export function getImageUrl(imageName: string) {
+type ImageFormat = 'webp' | 'jpg' | 'jpeg' | 'png';
+
+export function getImageUrl(
+  imageName: string,
+  imageFormat: ImageFormat = 'webp',
+) {
   return new URL(
-    `../assets/images/background-${imageName}.webp`,
+    `../assets/images/background-${imageName}.${imageFormat}`,
     import.meta.url,
   ).href;
 }
