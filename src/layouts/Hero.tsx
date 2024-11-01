@@ -1,5 +1,5 @@
-import { getImageUrl } from '@/utils/image';
 import { PropsWithChildren } from 'react';
+import { getBackgroundImageUrl } from '@/utils/image';
 import Header from '@layouts/Header';
 
 type HeroProps = {
@@ -11,7 +11,7 @@ const Hero = ({ backgroundImage, children }: PropsWithChildren<HeroProps>) => {
     <div
       className="bg-cover bg-center"
       style={{
-        backgroundImage: `url(${getImageUrl(backgroundImage)}), url(${getImageUrl(backgroundImage, 'jpg')}) `,
+        backgroundImage: `url(${getBackgroundImageUrl(backgroundImage)}), url(${getBackgroundImageUrl(backgroundImage, 'jpg')}) `,
       }}
     >
       <Header />

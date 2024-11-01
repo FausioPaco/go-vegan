@@ -1,6 +1,6 @@
 type ImageFormat = 'webp' | 'jpg' | 'jpeg' | 'png';
 
-export function getImageUrl(
+export function getBackgroundImageUrl(
   imageName: string,
   imageFormat: ImageFormat = 'webp',
 ) {
