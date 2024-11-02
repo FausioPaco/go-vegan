@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState, SVGProps } from 'react';
 
 export function useSVGImport(iconName: string) {
-  const importedIconRef = useRef<React.FC<React.SVGProps<SVGElement>>>();
+  const importedIconRef = useRef<FC<SVGProps<SVGElement>>>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>();
 
