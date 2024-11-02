@@ -1,4 +1,5 @@
-import Meta from '@components/Meta';
+import { Icon } from '@/components/ui/Icon';
+import Meta from '@/components/meta';
 import Hero from '@layouts/Hero';
 
 const Home = () => {
@@ -15,7 +16,9 @@ const Home = () => {
         </Hero>
 
         {/* Hero Section Here */}
-        <h1>Hello Home</h1>
+        <h1>
+          Hello Home <Icon name="animals" />
+        </h1>
       </main>
     </>
   );

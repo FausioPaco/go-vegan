@@ -13,13 +13,7 @@ const App = () => {
         <Route
           path="about"
           element={
-            <Suspense
-              fallback={
-                <>
-                  <span>Loading...</span>
-                </>
-              }
-            >
+            <Suspense fallback={<span>Loading...</span>}>
               <About />
             </Suspense>
           }
