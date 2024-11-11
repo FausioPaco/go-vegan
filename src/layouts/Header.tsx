@@ -1,7 +1,20 @@
 import { Link, NavLink } from 'react-router-dom';
 import { Icon } from '@/components/ui/Icon';
+import cn from '@/utils/cn';
 
 const Header = () => {
+  const navItems = [
+    { name: 'ORDERS', to: '/orders' },
+    { name: 'MENU', to: '/about' },
+    { name: 'FAQS', to: '/faqs' },
+    { name: 'CONTACT', to: '/contact' },
+  ];
+
+  const navLinkClass = 'font-normal hover:text-primary-400 transition-colors';
+
+  const getNavLinkClass = (isActive: boolean) =>
+    cn(navLinkClass, { 'text-primary-400': isActive });
+
   return (
     <header className="flex justify-between border-b border-white/25 pb-2 pt-4">
       <Link to="/" className="block">
@@ -16,51 +29,17 @@ const Header = () => {
 
       <nav className="hidden text-white md:block">
         <ul className="flex justify-center gap-x-6">
-          <li>
-            <NavLink
-              to="/orders"
-              className={({ isActive }) =>
-                isActive ? 'font-normal text-primary-400' : 'font-normal'
-              }
-              end
-            >
-              ORDERS
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                isActive ? 'font-normal text-primary-400' : 'font-normal'
-              }
-              end
-            >
-              MENU
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/faqs"
-              className={({ isActive }) =>
-                isActive ? 'font-normal text-primary-400' : 'font-normal'
-              }
-              end
-            >
-              FAQS
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                isActive ? 'font-normal text-primary-400' : 'font-normal'
-              }
-              end
-            >
-              CONTACT
-            </NavLink>
-          </li>
+          {navItems.map((item) => (
+            <li key={item.to}>
+              <NavLink
+                to={item.to}
+                className={({ isActive }) => getNavLinkClass(isActive)}
+                end
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
 
