@@ -9,7 +9,7 @@ type HeroProps = {
 const Hero = ({ backgroundImage, children }: PropsWithChildren<HeroProps>) => {
   return (
     <div
-      className="bg-cover bg-center"
+      className="min-h-[480px] bg-cover bg-center"
       style={{
         backgroundImage: `url(${getBackgroundImageUrl(backgroundImage)}), url(${getBackgroundImageUrl(backgroundImage, 'jpg')}) `,
       }}

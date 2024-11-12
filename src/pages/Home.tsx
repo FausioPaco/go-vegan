@@ -1,6 +1,6 @@
-import { Icon } from '@/components/ui/Icon';
 import Meta from '@/components/meta';
 import Hero from '@layouts/Hero';
+import { Button } from '@/components/ui/Button';
 
 const Home = () => {
   return (
@@ -15,10 +15,11 @@ const Home = () => {
           <h1>Hello Hero Message</h1>
         </Hero>
 
-        {/* Hero Section Here */}
-        <h1>
-          Hello Home <Icon name="animals" />
-        </h1>
+        <div className="container my-8">
+          <Button variant="primary" className="ml-4">
+            Hello Button
+          </Button>
+        </div>
       </main>
     </>
   );
