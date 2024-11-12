@@ -1,20 +1,9 @@
 import { useSVGImport } from '@/hooks/useSVGImport';
+import { IconName } from '@/types/Icon';
 import { ComponentProps } from 'react';
 
 type IconProps = ComponentProps<'svg'> & {
-  name:
-    | 'animals'
-    | 'arrow-left'
-    | 'arrow-right'
-    | 'better-world'
-    | 'chevron-down'
-    | 'eco-friendly'
-    | 'facebook'
-    | 'instagram'
-    | 'twitter'
-    | 'healthcare'
-    | 'location'
-    | 'user';
+  name: IconName;
 };
 
 const Icon = ({ name, ...props }: IconProps) => {
