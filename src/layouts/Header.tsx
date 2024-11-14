@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import { Icon } from '@/components/ui/Icon';
+import { Icon } from '@/components/ui/icon';
 import cn from '@/utils/cn';
 
 const Header = () => {

@@ -1,7 +1,7 @@
 import { ComponentProps, PropsWithChildren } from 'react';
 import cn from '@/utils/cn';
 import { IconName } from '@/types/Icon';
-import { Icon } from '../Icon';
+import { Icon } from '@components/ui/icon';
 
 type ButtonSize = 'sm' | 'md' | 'lg';
 type ButtonVariant = 'primary' | 'secondary' | 'tertiary';

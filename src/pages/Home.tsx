@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import Meta from '@/components/meta';
 import Hero from '@layouts/Hero';
-import { Button } from '@/components/ui/Button';
-import { Select } from '@/components/ui/Select';
+import { Button } from '@/components/ui/button';
+import { Select } from '@/components/ui/select';
+import { Input } from '@/components/ui/input';
 
 const Home = () => {
   const [optionSelected, setOptionSelected] = useState('');
+  const [data, setData] = useState('');
   const options = [
     { value: 1, label: 'Option 1' },
     { value: 2, label: 'Option 2' },
@@ -23,18 +25,25 @@ const Home = () => {
           <h1>Hello Hero Message</h1>
         </Hero>
 
-        <div className="container my-8">
-          <Button variant="primary" className="mb-2 ml-4">
-            Hello Button
-          </Button>
+        <div className="flex w-full justify-center">
+          <div className="my-8 flex w-[300px] flex-col justify-center">
+            <Button variant="primary">Hello Button</Button>
 
-          <Select
-            id="option"
-            label="Options"
-            options={options}
-            value={optionSelected}
-            onChange={(event) => setOptionSelected(event.target.value)}
-          />
+            <Select
+              id="option"
+              label="Options"
+              options={options}
+              value={optionSelected}
+              onChange={(event) => setOptionSelected(event.target.value)}
+            />
+            <Input
+              id="labelId"
+              label="Label"
+              placeholder="Example Place"
+              value={data}
+              onChange={(event) => setData(event.target.value)}
+            />
+          </div>
         </div>
       </main>
     </>

@@ -1,12 +1,13 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import cn from '@/utils/cn';
+import { InputError } from '@/components/ui/input-error';
 
 type Option = Omit<ComponentProps<'option'>, 'children'> & {
   value: string | number;
   label: string | number;
 };
 
-type ISelectProps = ComponentProps<'select'> & {
+interface ISelectProps extends ComponentProps<'select'> {
   id: string;
   label: string;
   value: string | number;
@@ -14,56 +15,65 @@ type ISelectProps = ComponentProps<'select'> & {
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   ariaLabel?: string;
   error?: string;
-};
+  textTip?: string;
+  className?: string;
+}
 
-const Select = ({
-  id,
-  label,
-  value,
-  options,
-  onChange,
-  ariaLabel,
-  error,
-  ...props
-}: ISelectProps) => {
-  return (
-    <div className="my-3">
-      <label
-        htmlFor={id}
-        className="mb-1 block text-sm font-medium text-grey-800"
-      >
-        {label}
-      </label>
-      <select
-        id={id}
-        aria-label={ariaLabel}
-        aria-describedby={error ? `error-${id}` : undefined}
-        value={value}
-        onChange={onChange}
-        className={cn(
-          'w-full rounded border border-grey-300 bg-transparent px-3 py-2 font-sans text-grey-700 outline-none transition duration-300 ease-in focus:border-primary-500 focus:shadow-md active:border-primary-600 active:shadow-md disabled:bg-grey-500',
-          error && 'border-danger-600',
-        )}
-        {...props}
-      >
-        <option value="">Selecione</option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-      {error && (
-        <p
-          id={`error-${id}`}
-          aria-live="assertive"
-          className="text-label animate-fadeIn mt-2 flex items-center truncate text-sm font-medium text-danger-600"
+const Select = forwardRef<HTMLSelectElement, ISelectProps>(
+  (
+    {
+      id,
+      label,
+      value,
+      options,
+      onChange,
+      ariaLabel,
+      className,
+      error,
+      textTip,
+      ...props
+    }: ISelectProps,
+    ref,
+  ) => {
+    return (
+      <div className="my-3">
+        <label
+          htmlFor={id}
+          className="mb-1 block text-sm font-medium text-grey-800"
         >
-          {error}
-        </p>
-      )}
-    </div>
-  );
-};
+          {label}
+        </label>
+        <select
+          id={id}
+          ref={ref}
+          aria-label={ariaLabel}
+          aria-describedby={error ? `error-${id}` : undefined}
+          value={value}
+          onChange={onChange}
+          className={cn(
+            'w-full rounded border border-grey-300 bg-transparent px-3 py-2 font-sans text-grey-700 outline-none transition duration-300 ease-in focus:border-primary-500 focus:shadow-md active:border-primary-600 active:shadow-md disabled:bg-grey-500',
+            error && 'border-danger-600',
+            className,
+          )}
+          {...props}
+        >
+          <option value="">Selecione</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        {error && <InputError id={id}>{error}</InputError>}
+
+        {textTip && (
+          <small className="text-label mt-2 block truncate text-xs font-medium text-grey-600">
+            {textTip}
+          </small>
+        )}
+      </div>
+    );
+  },
+);
 
 export default Select;
