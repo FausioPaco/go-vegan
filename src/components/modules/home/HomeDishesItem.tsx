@@ -1,14 +1,22 @@
 import { ButtonLink } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { MenuCategory } from '@/types/Menu';
+import { useNavigate } from 'react-router-dom';
 
 type IDishesItemProps = {
   category: MenuCategory;
 };
 
 const HomeDishesItem = ({ category }: IDishesItemProps) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex cursor-pointer items-center gap-x-4 rounded-2xl bg-white drop-shadow md:min-w-[560px]">
+    <div
+      role="button"
+      tabIndex={0}
+      className="flex cursor-pointer items-center gap-x-4 rounded-2xl border border-white bg-white drop-shadow transition-all hover:-translate-y-1 hover:border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 md:min-w-[560px]"
+      onClick={() => navigate('/about')}
+    >
       <img
         width={231}
         height={268}
