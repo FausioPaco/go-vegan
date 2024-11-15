@@ -12,3 +12,28 @@
   font-display: swap;
   font-style: normal;
 }
+
+@layer base {
+  h1 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  h2 {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  dt {
+    @apply mb-1 text-xs text-grey-500 md:text-sm;
+  }
+
+  p {
+    @apply max-w-[912px] text-sm md:text-base;
+  }
+
+  dd {
+    @apply max-w-[700px] text-base text-grey-800 md:text-lg;
+  }
+  ::placeholder {
+    @apply text-sm;
+  }
+}
