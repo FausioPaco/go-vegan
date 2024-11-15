@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef } from 'react';
+import { ComponentProps, forwardRef, useId } from 'react';
 import cn from '@/utils/cn';
 import { InputError } from '@/components/ui/input-error';
 
@@ -8,7 +8,6 @@ type Option = Omit<ComponentProps<'option'>, 'children'> & {
 };
 
 interface ISelectProps extends ComponentProps<'select'> {
-  id: string;
   label: string;
   value: string | number;
   options: Option[];
@@ -22,7 +21,6 @@ interface ISelectProps extends ComponentProps<'select'> {
 const Select = forwardRef<HTMLSelectElement, ISelectProps>(
   (
     {
-      id,
       label,
       value,
       options,
@@ -35,19 +33,21 @@ const Select = forwardRef<HTMLSelectElement, ISelectProps>(
     }: ISelectProps,
     ref,
   ) => {
+    const selectId = useId();
+
     return (
       <div className="my-3">
         <label
-          htmlFor={id}
+          htmlFor={selectId}
           className="mb-1 block text-sm font-medium text-grey-800"
         >
           {label}
         </label>
         <select
-          id={id}
+          id={selectId}
           ref={ref}
           aria-label={ariaLabel}
-          aria-describedby={error ? `error-${id}` : undefined}
+          aria-describedby={error ? `error-${selectId}` : undefined}
           value={value}
           onChange={onChange}
           className={cn(
@@ -64,7 +64,7 @@ const Select = forwardRef<HTMLSelectElement, ISelectProps>(
             </option>
           ))}
         </select>
-        {error && <InputError id={id}>{error}</InputError>}
+        {error && <InputError id={selectId}>{error}</InputError>}
 
         {textTip && (
           <small className="text-label mt-2 block truncate text-xs font-medium text-grey-600">

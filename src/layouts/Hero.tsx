@@ -1,15 +1,24 @@
 import { PropsWithChildren } from 'react';
 import { getBackgroundImageUrl } from '@/utils/image';
 import Header from '@layouts/Header';
+import cn from '@/utils/cn';
 
 type HeroProps = {
   backgroundImage: 'hero' | 'about' | 'menu' | 'contact' | 'faq' | 'order';
+  className?: string;
 };
 
-const Hero = ({ backgroundImage, children }: PropsWithChildren<HeroProps>) => {
+const Hero = ({
+  backgroundImage,
+  className,
+  children,
+}: PropsWithChildren<HeroProps>) => {
   return (
     <div
-      className="min-h-[480px] bg-cover bg-center"
+      className={cn(
+        'flex h-full min-h-[480px] flex-col bg-cover bg-center',
+        className,
+      )}
       style={{
         backgroundImage: `url(${getBackgroundImageUrl(backgroundImage)}), url(${getBackgroundImageUrl(backgroundImage, 'jpg')}) `,
       }}
@@ -17,7 +26,7 @@ const Hero = ({ backgroundImage, children }: PropsWithChildren<HeroProps>) => {
       <Header />
       <section
         id="hero"
-        className="flex flex-1 flex-col items-center justify-center"
+        className="flex flex-1 flex-col items-center justify-center gap-y-7 px-6 text-center"
       >
         {children}
       </section>

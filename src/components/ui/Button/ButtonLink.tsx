@@ -3,24 +3,25 @@ import { ButtonVariant, ButtonSize } from '@/types/Button';
 import cn from '@/utils/cn';
 import { IconName } from '@/types/Icon';
 import { Icon } from '@/components/ui/icon';
+import { Link } from 'react-router-dom';
 
-type IButtonProps = ComponentProps<'button'> & {
+type IButtonLinkProps = ComponentProps<'a'> & {
   variant?: ButtonVariant;
   size?: ButtonSize;
   className?: string;
   icon?: IconName;
-  ariaLabel?: string;
+  href: string;
 };
 
-const Button = ({
+const ButtonLink = ({
   variant = 'primary',
   size = 'md',
+  href,
   className,
   icon,
-  ariaLabel,
   children,
   ...props
-}: PropsWithChildren<IButtonProps>) => {
+}: PropsWithChildren<IButtonLinkProps>) => {
   const buttonVariants = {
     primary:
       'rounded-full bg-gradient-to-t from-primary-600 to-primary-500 text-white hover:shadow-sm hover:shadow-primary-700/70',
@@ -37,22 +38,21 @@ const Button = ({
   };
 
   return (
-    <button
+    <Link
+      to={href}
       className={cn(
-        'min-w-[96px] font-medium transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring focus:ring-primary-500',
+        'block min-w-[220px] font-normal transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring focus:ring-primary-500',
         buttonVariants[variant],
         buttonSizes[size],
         icon && 'flex items-center gap-x-1',
         className,
       )}
-      aria-label={ariaLabel || undefined}
-      title={ariaLabel || undefined}
       {...props}
     >
       {icon && <Icon name={icon} className="fill-white" />}
       <span>{children}</span>
-    </button>
+    </Link>
   );
 };
 
-export default Button;
+export default ButtonLink;

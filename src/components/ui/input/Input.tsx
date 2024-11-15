@@ -1,9 +1,8 @@
 import cn from '@/utils/cn';
-import { ComponentProps, forwardRef } from 'react';
+import { ComponentProps, forwardRef, useId } from 'react';
 import { InputError } from '@/components/ui/input-error';
 
 interface IInputProps extends ComponentProps<'input'> {
-  id: string;
   label: string;
   error?: string;
   textTip?: string;
@@ -11,21 +10,20 @@ interface IInputProps extends ComponentProps<'input'> {
 }
 
 const Input = forwardRef<HTMLInputElement, IInputProps>(
-  (
-    { id, label, className, value, error, textTip, ...props }: IInputProps,
-    ref,
-  ) => {
+  ({ label, className, value, error, textTip, ...props }: IInputProps, ref) => {
+    const inputId = useId();
+
     return (
       <div className="my-3">
         <label
-          htmlFor={id}
+          htmlFor={inputId}
           className="mb-1 block text-sm font-medium text-grey-800"
         >
           {label}
         </label>
 
         <input
-          id={id}
+          id={inputId}
           ref={ref}
           value={value}
           className={cn(
@@ -34,11 +32,11 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
             className,
           )}
           aria-invalid={!!error}
-          aria-describedby={error ? `${id}-error` : undefined}
+          aria-describedby={error ? `${inputId}-error` : undefined}
           {...props}
         />
 
-        {error && <InputError id={id}>{error}</InputError>}
+        {error && <InputError id={inputId}>{error}</InputError>}
         {textTip && (
           <small className="text-label mt-2 block truncate text-xs font-medium text-grey-600">
             {textTip}

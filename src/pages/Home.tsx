@@ -1,18 +1,8 @@
-import { useState } from 'react';
 import Meta from '@/components/meta';
+import { ButtonLink } from '@/components/ui/button';
 import Hero from '@layouts/Hero';
-import { Button } from '@/components/ui/button';
-import { Select } from '@/components/ui/select';
-import { Input } from '@/components/ui/input';
 
 const Home = () => {
-  const [optionSelected, setOptionSelected] = useState('');
-  const [data, setData] = useState('');
-  const options = [
-    { value: 1, label: 'Option 1' },
-    { value: 2, label: 'Option 2' },
-  ];
-
   return (
     <>
       <Meta
@@ -21,30 +11,18 @@ const Home = () => {
         description="Where Vegan Cuisine Excels Without Sacrificing Taste!"
       />
       <main className="flex-1">
-        <Hero backgroundImage="hero">
-          <h1>Hello Hero Message</h1>
+        <Hero backgroundImage="hero" className="h-[400px] md:h-[600px]">
+          <h1 className="font-serif text-5xl font-bold leading-relaxed text-white drop-shadow-md md:text-6xl md:leading-normal">
+            Maputo's <span className="text-primary-100">Vegan Delights</span>:
+            Flavor Redefined!
+          </h1>
+          <p className="text-3xl font-light text-white md:text-4xl">
+            Where Vegan Cuisine Excels Without Sacrificing Taste!
+          </p>
+          <ButtonLink href="/order" size="lg">
+            Order now
+          </ButtonLink>
         </Hero>
-
-        <div className="flex w-full justify-center">
-          <div className="my-8 flex w-[300px] flex-col justify-center">
-            <Button variant="primary">Hello Button</Button>
-
-            <Select
-              id="option"
-              label="Options"
-              options={options}
-              value={optionSelected}
-              onChange={(event) => setOptionSelected(event.target.value)}
-            />
-            <Input
-              id="labelId"
-              label="Label"
-              placeholder="Example Place"
-              value={data}
-              onChange={(event) => setData(event.target.value)}
-            />
-          </div>
-        </div>
       </main>
     </>
   );
