@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { MENU_CATEGORIES } from '@/data/menu';
 import HomeDishesItem from './HomeDishesItem';
 
@@ -18,6 +19,12 @@ const HomeDishes = () => {
           expectations
         </p>
       </div>
+      <div className="my-2 flex w-full justify-end lg:max-w-[1460px]">
+        <Button variant="secondary" size="md">
+          Download Menu
+        </Button>
+      </div>
+
       <div className="mt-6 grid w-full grid-cols-1 justify-center gap-10 lg:max-w-[1460px] lg:grid-cols-2 lg:grid-rows-2">
         {MENU_CATEGORIES.map((categoryItem) => (
           <HomeDishesItem key={categoryItem.id} category={categoryItem} />
