@@ -23,9 +23,9 @@ const Button = ({
 }: PropsWithChildren<IButtonProps>) => {
   const buttonVariants = {
     primary:
-      'rounded-full bg-gradient-to-t from-primary-600 to-primary-500 text-white hover:shadow-sm hover:shadow-primary-700/70',
+      'rounded-full bg-gradient-to-t from-primary-600 to-primary-500 text-white hover:shadow-sm hover:shadow-primary-700/70 hover:-translate-y-1',
     secondary:
-      'rounded-full border-primary-600 shadow-md border-2 text-primary-600 hover:bg-primary-600 hover:text-white',
+      'rounded-full border-primary-600 shadow-md border-2 text-primary-600 hover:bg-primary-600 hover:text-white hover:-translate-y-1',
     tertiary:
       'flex items-center gap-x-2 text-primary-700 underline outline-none hover:text-primary-800',
   };
@@ -39,7 +39,7 @@ const Button = ({
   return (
     <button
       className={cn(
-        'min-w-[96px] font-medium transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring focus:ring-primary-500',
+        'min-w-[96px] font-medium transition-all duration-300 focus:outline-none focus:ring focus:ring-primary-500',
         buttonVariants[variant],
         buttonSizes[size],
         icon && 'flex items-center gap-x-1',

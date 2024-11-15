@@ -26,7 +26,7 @@ const Hero = ({
       <Header />
       <section
         id="hero"
-        className="flex flex-1 flex-col items-center justify-center gap-y-7 px-6 text-center"
+        className="flex flex-1 flex-col items-center justify-center space-y-7 px-6 py-8 text-center"
       >
         {children}
       </section>
