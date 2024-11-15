@@ -27,7 +27,7 @@
   }
 
   p {
-    @apply max-w-[912px] text-sm md:text-base;
+    @apply max-w-[600px] text-sm md:text-base;
   }
 
   dd {

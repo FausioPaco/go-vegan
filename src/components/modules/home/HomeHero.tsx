@@ -8,7 +8,7 @@ const HomeHero = () => {
         Maputo's <span className="text-primary-100">Vegan Delights</span>:
         Flavor Redefined!
       </h1>
-      <p className="text-3xl font-light leading-relaxed text-white md:text-4xl">
+      <p className="max-w-[980px] text-3xl font-light leading-relaxed text-white md:text-4xl">
         Where Vegan Cuisine Excels Without Sacrificing Taste!
       </p>
       <ButtonLink href="/order" size="lg">

@@ -4,7 +4,10 @@ import HomeDishesItem from './HomeDishesItem';
 
 const HomeDishes = () => {
   return (
-    <section className="my-11 flex w-full flex-col items-center justify-center px-4">
+    <section
+      id="home-menu"
+      className="my-11 flex w-full flex-col items-center justify-center px-4"
+    >
       <div className="mb-6 flex w-full flex-col items-center text-center">
         <h2 className="mb-2 font-sans text-sm font-bold text-primary-600">
           MENU

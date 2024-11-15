@@ -1,5 +1,5 @@
 import Meta from '@/components/meta';
-import { HomeDishes, HomeHero } from '@/components/modules/home';
+import { HomeDishes, HomeHero, HomeLocation } from '@/components/modules/home';
 
 const Home = () => {
   return (
@@ -12,6 +12,7 @@ const Home = () => {
       <main className="flex-1">
         <HomeHero />
         <HomeDishes />
+        <HomeLocation />
       </main>
     </>
   );
