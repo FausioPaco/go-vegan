@@ -1,5 +1,10 @@
 import Meta from '@/components/meta';
-import { HomeDishes, HomeHero, HomeLocation } from '@/components/modules/home';
+import {
+  HomeDishes,
+  HomeHero,
+  HomeLocation,
+  HomeSchedule,
+} from '@/components/modules/home';
 
 const Home = () => {
   return (
@@ -13,6 +18,7 @@ const Home = () => {
         <HomeHero />
         <HomeDishes />
         <HomeLocation />
+        <HomeSchedule />
       </main>
     </>
   );
