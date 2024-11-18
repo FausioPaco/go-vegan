@@ -10,4 +10,11 @@ export type IconName =
   | 'twitter'
   | 'healthcare'
   | 'location'
-  | 'user';
+  | 'user'
+  | 'nav-house'
+  | 'nav-contact'
+  | 'nav-faqs'
+  | 'nav-about'
+  | 'nav-menu'
+  | 'nav-hamburger'
+  | 'nav-close';
