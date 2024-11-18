@@ -14,7 +14,7 @@ const HomePersistent = () => {
       <h2 className="font-serif text-4xl font-bold leading-normal text-white drop-shadow-md md:text-5xl">
         Explore the Vegan Flavor of Maputo
       </h2>
-      <p className="max-w-[980px] text-3xl font-light leading-relaxed text-white md:text-4xl">
+      <p className="max-w-[980px] text-2xl font-light leading-relaxed text-white md:text-3xl">
         Join us for a unique gastronomic experience. Discover the authentic
         taste of Maputo’s vegan cuisine and place your order today.
       </p>
