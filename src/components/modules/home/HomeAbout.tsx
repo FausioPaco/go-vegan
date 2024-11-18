@@ -4,7 +4,7 @@ const HomeAbout = () => {
   return (
     <section
       id="home-about"
-      className="flex min-h-[900px] w-full flex-col items-center justify-center bg-white md:flex-row"
+      className="flex min-h-[900px] w-full flex-col items-center justify-center bg-white py-8 md:flex-row"
     >
       <div className="flex w-full flex-col items-center text-left md:w-2/3">
         <div className="pl-3">
@@ -70,13 +70,13 @@ const HomeAbout = () => {
         </div>
       </div>
 
-      <div className="mx-2 w-1/3">
+      <div className="mx-2 w-full md:w-1/3">
         <img
           src="/home/passion-cuisine.jpg"
           width={465}
           height={653}
           alt="Vegan Plate"
-          className="rounded-lg"
+          className="mx-auto rounded-lg"
         />
       </div>
     </section>

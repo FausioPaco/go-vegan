@@ -4,6 +4,7 @@ import {
   HomeDishes,
   HomeHero,
   HomeLocation,
+  HomePersistent,
   HomeSchedule,
 } from '@/components/modules/home';
 
@@ -21,6 +22,7 @@ const Home = () => {
         <HomeLocation />
         <HomeSchedule />
         <HomeAbout />
+        <HomePersistent />
       </main>
     </>
   );
