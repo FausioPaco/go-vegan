@@ -1,5 +1,6 @@
 import Meta from '@/components/meta';
 import {
+  HomeAbout,
   HomeDishes,
   HomeHero,
   HomeLocation,
@@ -19,6 +20,7 @@ const Home = () => {
         <HomeDishes />
         <HomeLocation />
         <HomeSchedule />
+        <HomeAbout />
       </main>
     </>
   );

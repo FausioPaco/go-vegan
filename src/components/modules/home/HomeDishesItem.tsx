@@ -20,7 +20,7 @@ const HomeDishesItem = ({ category }: IDishesItemProps) => {
       <img
         width={231}
         height={268}
-        src={`/hero/${category.urlImage}`}
+        src={`/home/${category.urlImage}`}
         alt={`${category.name} preview image`}
         className="block h-auto w-[128px] overflow-hidden md:w-[231px] md:-translate-x-1"
       />
