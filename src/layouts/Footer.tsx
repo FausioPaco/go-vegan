@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
         </div>
         <hr className="mt-4 w-full border-t-grey-600" />
-        <small className="mt-4 mt-6 inline-block text-grey-500">
+        <small className="mt-6 inline-block text-grey-500">
           © GoVegan, 2020
         </small>
       </div>
