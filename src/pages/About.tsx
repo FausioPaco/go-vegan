@@ -1,4 +1,5 @@
 import Meta from '@/components/meta';
+import { AboutHero, AboutStory } from '@/components/modules/about';
 
 const About = () => {
   return (
@@ -9,7 +10,10 @@ const About = () => {
         description="We appreciate a sustainable and deliciously conscious gastronomic experience"
       />
 
-      <h1>Hello About</h1>
+      <main className="flex-1">
+        <AboutHero />
+        <AboutStory />
+      </main>
     </>
   );
 };

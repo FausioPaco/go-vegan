@@ -16,7 +16,7 @@ const Hero = ({
   return (
     <div
       className={cn(
-        'flex h-full min-h-[480px] flex-col bg-cover bg-center',
+        'flex h-full min-h-[480px] flex-col bg-primary-800 bg-cover bg-center',
         className,
       )}
       style={{
