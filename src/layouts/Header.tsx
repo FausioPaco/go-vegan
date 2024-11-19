@@ -7,7 +7,7 @@ import { useCallback, useState } from 'react';
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
   const navItems = [
-    { name: 'ORDERS', to: '/orders' },
+    { name: 'ORDER', to: '/orders' },
     { name: 'MENU', to: '/menu' },
     { name: 'ABOUT', to: '/about' },
     { name: 'FAQS', to: '/faqs' },
@@ -17,7 +17,7 @@ const Header = () => {
   const navLinkClass = 'font-normal hover:text-primary-400 transition-colors';
 
   const getNavLinkClass = (isActive: boolean) =>
-    cn(navLinkClass, { 'text-primary-400': isActive });
+    cn(navLinkClass, { 'text-primary-400 font-medium': isActive });
 
   const handleToggleNav = useCallback(() => {
     setShowNav((prevValue) => !prevValue);
