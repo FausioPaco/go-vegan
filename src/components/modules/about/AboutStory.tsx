@@ -4,8 +4,8 @@ const AboutStory = () => {
       id="about-story"
       className="flex w-full flex-col justify-center px-2 py-10 md:flex-row"
     >
-      <div className="flex w-full flex-col items-center md:w-1/2">
-        <div className="my-2 text-left">
+      <div className="flex w-full flex-col items-center px-2 pb-4 md:w-1/2">
+        <div className="my-2 w-full text-left md:w-fit">
           <h2 className="mb-2 font-sans text-sm font-bold text-primary-600">
             OUR STORY
           </h2>

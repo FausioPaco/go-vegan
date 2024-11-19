@@ -1,5 +1,10 @@
 import Meta from '@/components/meta';
-import { AboutHero, AboutStory } from '@/components/modules/about';
+import {
+  AboutBeliefs,
+  AboutHero,
+  AboutStory,
+} from '@/components/modules/about';
+import { HomePersistent } from '@/components/modules/home';
 
 const About = () => {
   return (
@@ -13,6 +18,8 @@ const About = () => {
       <main className="flex-1">
         <AboutHero />
         <AboutStory />
+        <AboutBeliefs />
+        <HomePersistent />
       </main>
     </>
   );
