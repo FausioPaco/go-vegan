@@ -21,7 +21,7 @@ const HomeLocation = () => {
               We’re located in <span className="text-primary-100">Maputo</span>
             </h2>
           </div>
-          <p className="text-xl font-normal">
+          <p className="text-xl font-normal text-white">
             We proudly serve our vegan cuisine and warm hospitality from our
             prime location in the heart of Maputo, making it accessible to every
             corner of the city.

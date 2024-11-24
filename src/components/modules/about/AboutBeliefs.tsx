@@ -85,7 +85,7 @@ const AboutBeliefs = () => {
       </div>
 
       <PlantXL className="absolute bottom-[20%] hidden opacity-25 md:right-[-40px] md:block" />
-      <PlantDraw className="absolute top-[10%] hidden opacity-25 md:left-[420px] lg:block" />
+      <PlantDraw className="absolute top-[10%] hidden rotate-45 opacity-25 md:left-[420px] lg:block" />
       <PlantLG
         width={58}
         height={65}
