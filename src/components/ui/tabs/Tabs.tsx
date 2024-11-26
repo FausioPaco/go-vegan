@@ -2,7 +2,7 @@ import cn from '@/utils/cn';
 import { PropsWithChildren, useId } from 'react';
 
 type ITabsProps = {
-  tabType: 'outline' | 'bordered';
+  tabType?: 'outline' | 'bordered';
 };
 
 const Tabs = ({
@@ -13,7 +13,7 @@ const Tabs = ({
   return (
     <section
       id={tabId}
-      className="mt-6 overflow-hidden"
+      className="mt-6 overflow-hidden md:min-w-[60%]"
       aria-multiselectable="false"
     >
       <ul

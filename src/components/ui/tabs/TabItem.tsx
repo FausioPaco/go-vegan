@@ -2,15 +2,16 @@ import { useId } from 'react';
 import cn from '@/utils/cn';
 
 type ITabItemProps = {
-  name: string;
+  label: string;
   tabPosition: number;
   totalTabs: number;
   isActive: boolean;
-  tabType: 'outline' | 'bordered';
+  tabType?: 'outline' | 'bordered';
+  onClick: () => void;
 };
 
 const TabItem = ({
-  name,
+  label,
   tabPosition,
   totalTabs,
   isActive,
@@ -51,9 +52,9 @@ const TabItem = ({
         tabIndex={0}
         aria-controls={tabItemId}
         aria-selected={isActive}
-        aria-label={name}
+        aria-label={label}
       >
-        {name}
+        {label}
       </button>
     </li>
   );
