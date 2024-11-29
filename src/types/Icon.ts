@@ -17,4 +17,8 @@ export type IconName =
   | 'nav-about'
   | 'nav-menu'
   | 'nav-hamburger'
-  | 'nav-close';
+  | 'nav-close'
+  | 'faqs-dishes'
+  | 'faqs-flavor'
+  | 'faqs-orders'
+  | 'faqs-origin';

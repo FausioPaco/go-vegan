@@ -1,6 +1,29 @@
-import { Faqs } from '@/types/Faq';
+import { FaqCategory, Faqs } from '@/types/Faq';
 
-export const ALL_DISHES: Faqs = {
+export const ALL_CATEGORIES: FaqCategory[] = [
+  {
+    key: 'dishes',
+    title: 'Menu & Dishes',
+    icon: 'faqs-dishes',
+  },
+  {
+    key: 'orders',
+    title: 'Orders and Deliveries',
+    icon: 'faqs-orders',
+  },
+  {
+    key: 'flavor',
+    title: 'Flavor and Seasonality',
+    icon: 'faqs-flavor',
+  },
+  {
+    key: 'origins',
+    title: 'Origins of Ingredients',
+    icon: 'faqs-origin',
+  },
+];
+
+export const ALL_QUESTIONS: Faqs = {
   dishes: [
     {
       id: 1,

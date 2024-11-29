@@ -1,10 +1,5 @@
 import { IconName } from './Icon';
 
-export type FaqCategory = {
-  title: string;
-  icon: IconName;
-};
-
 export type Faq = {
   id: number;
   question: string;
@@ -16,4 +11,10 @@ export type Faqs = {
   orders: Faq[];
   flavor: Faq[];
   origins: Faq[];
+};
+
+export type FaqCategory = {
+  key: keyof Faqs;
+  title: string;
+  icon: IconName;
 };
