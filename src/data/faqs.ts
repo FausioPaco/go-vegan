@@ -2,22 +2,22 @@ import { FaqCategory, Faqs } from '@/types/Faq';
 
 export const ALL_CATEGORIES: FaqCategory[] = [
   {
-    key: 'dishes',
+    id: 'dishes',
     title: 'Menu & Dishes',
     icon: 'faqs-dishes',
   },
   {
-    key: 'orders',
+    id: 'orders',
     title: 'Orders and Deliveries',
     icon: 'faqs-orders',
   },
   {
-    key: 'flavor',
+    id: 'flavor',
     title: 'Flavor and Seasonality',
     icon: 'faqs-flavor',
   },
   {
-    key: 'origins',
+    id: 'origins',
     title: 'Origins of Ingredients',
     icon: 'faqs-origin',
   },

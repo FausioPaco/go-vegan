@@ -1,5 +1,5 @@
 import Meta from '@/components/meta';
-import { FaqsHero } from '@/components/modules/faqs';
+import { FaqsContent, FaqsHero } from '@/components/modules/faqs';
 
 const Faqs = () => {
   return (
@@ -12,6 +12,7 @@ const Faqs = () => {
 
       <main className="flex-1">
         <FaqsHero />
+        <FaqsContent />
       </main>
     </>
   );

@@ -14,7 +14,7 @@ export type Faqs = {
 };
 
 export type FaqCategory = {
-  key: keyof Faqs;
+  id: keyof Faqs;
   title: string;
   icon: IconName;
 };
