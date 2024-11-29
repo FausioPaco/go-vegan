@@ -34,8 +34,8 @@ const MenuList = () => {
         key={activeTab}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0.6, y: -50 }}
-        transition={{ duration: 0.5, ease: 'easeIn' }}
+        exit={{ opacity: 0.2, y: -50 }}
+        transition={{ duration: 0.6, ease: [0.39, 0.24, 0.3, 1] }}
         className="md:min-w-screen-lg"
       >
         <div className="divide-y divide-grey-100">
