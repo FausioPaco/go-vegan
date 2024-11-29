@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import cn from '@/utils/cn';
+import { capitalize } from '@/utils/stringUtils';
 
 type ITabItemProps = {
   label: string;
@@ -15,23 +16,25 @@ const TabItem = ({
   tabPosition,
   totalTabs,
   isActive,
+  onClick,
   tabType = 'outline',
 }: ITabItemProps) => {
   const tabItemId = useId();
 
   const getButtonClasses = (tabType: string, isActive: boolean) => {
     const baseClasses =
-      'mb-2 flex w-full cursor-pointer items-center justify-center  bg-transparent text-lg font-medium outline-primary-700';
+      'mb-2 flex w-full cursor-pointer items-center justify-center bg-transparent text-lg font-medium outline-primary-700';
     const typeClasses =
       tabType === 'outline'
-        ? 'text-grey-700'
-        : 'text-grey-500 border-2 border-grey-300 p-2';
+        ? 'text-grey-500'
+        : 'text-grey-500 border border-grey-300 p-2';
 
-    let activeClasses = 'font-bold ';
+    let activeClasses = '';
 
-    if (isActive && tabType === 'outline') activeClasses += 'text-primary-700';
+    if (isActive && tabType === 'outline')
+      activeClasses += 'text-primary-700 md:border-b-primary-700';
     if (isActive && tabType === 'bordered')
-      activeClasses += 'bg-primary-700  text-white';
+      activeClasses += 'bg-primary-700 border-primary-700 text-white';
 
     return cn(baseClasses, typeClasses, activeClasses);
   };
@@ -39,9 +42,9 @@ const TabItem = ({
   return (
     <li
       role="presentation"
-      className={cn({
-        'border-b-2 border-b-primary-600': tabType === 'outline',
-        'border-2 border-grey-400': tabType === 'bordered',
+      className={cn('w-full', {
+        'md:border-b-2 md:border-b-primary-600':
+          tabType === 'outline' && isActive,
       })}
     >
       <button
@@ -53,8 +56,9 @@ const TabItem = ({
         aria-controls={tabItemId}
         aria-selected={isActive}
         aria-label={label}
+        onClick={onClick}
       >
-        {label}
+        {capitalize(label)}
       </button>
     </li>
   );

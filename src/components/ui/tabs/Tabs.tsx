@@ -10,19 +10,28 @@ const Tabs = ({
   children,
 }: PropsWithChildren<ITabsProps>) => {
   const tabId = useId();
+
+  const getTabClasses = (tabType: string) => {
+    const baseClasses =
+      'items-between flex w-full flex-col gap-y-3 md:flex-row md:justify-around md:gap-x-3 md:gap-y-0';
+
+    const typeClasses =
+      tabType === 'outline'
+        ? 'text-grey-700 md:border-b md:border-grey-100'
+        : 'text-grey-500  p-2';
+
+    console.log(typeClasses);
+
+    return cn(baseClasses, typeClasses);
+  };
+
   return (
     <section
       id={tabId}
-      className="mt-6 overflow-hidden md:min-w-[60%]"
+      className="mt-6 w-full overflow-hidden md:max-w-[60%]"
       aria-multiselectable="false"
     >
-      <ul
-        className={cn(
-          'items-between flex w-full flex-col gap-y-3 md:flex-row md:justify-around md:gap-x-3 md:gap-y-0',
-          tabType === 'outline' && 'md:border-b md:border-b-grey-300',
-        )}
-        role="tablist"
-      >
+      <ul className={getTabClasses(tabType)} role="tablist">
         {children}
       </ul>
     </section>
