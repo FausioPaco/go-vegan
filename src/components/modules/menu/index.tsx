@@ -1,4 +1,5 @@
 import MenuList from './MenuList';
 import MenuHero from './MenuHero';
+import MenuItem from './MenuItem';
 
-export { MenuHero, MenuList };
+export { MenuHero, MenuList, MenuItem };

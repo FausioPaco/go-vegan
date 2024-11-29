@@ -1,19 +1,22 @@
 import { TabItem, Tabs } from '@/components/ui/tabs';
+import MenuItem from './MenuItem';
 import { ALL_DISHES } from '@/data/menu';
 import { motion } from 'motion/react';
 import { useState } from 'react';
+import { Dish, Dishes } from '@/types/Menu';
+import { Button } from '@/components/ui/button';
 
 const MenuList = () => {
-  const categoriesList = Object.keys(ALL_DISHES);
+  const categoriesList = Object.keys(ALL_DISHES) as (keyof Dishes)[];
   const [activeTab, setActiveTab] = useState(categoriesList[0]);
 
   return (
-    <div className="flex w-full flex-col items-center gap-y-4">
-      <Tabs>
+    <div className="my-8 flex w-full flex-col items-center justify-center gap-y-2 px-3">
+      <Tabs className="w-full md:max-w-[90%] lg:max-w-[60%]">
         {categoriesList.map((category, index) => (
           <TabItem
-            key={category}
-            label={category}
+            key={category.toString()}
+            label={category.toString()}
             tabPosition={index + 1}
             totalTabs={categoriesList.length}
             isActive={activeTab === category}
@@ -21,16 +24,25 @@ const MenuList = () => {
           />
         ))}
       </Tabs>
+      <div className="mt-3 flex w-full justify-end md:max-w-[90%] lg:max-w-[60%]">
+        <Button variant="secondary" size="sm">
+          Download Menu
+        </Button>
+      </div>
+
       <motion.div
         key={activeTab}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, x: 50 }}
-        transition={{ duration: 0.4, ease: 'easeInOut' }}
+        exit={{ opacity: 0.6, y: -50 }}
+        transition={{ duration: 0.5, ease: 'easeIn' }}
         className="md:min-w-screen-lg"
       >
-        {/* <TabContent items={ALL_DISHES[activeTab]} /> */}
-        {activeTab}
+        <div className="divide-y divide-grey-100">
+          {ALL_DISHES[activeTab].map((dish: Dish) => (
+            <MenuItem key={dish.id} category={activeTab} dish={dish} />
+          ))}
+        </div>
       </motion.div>
     </div>
   );

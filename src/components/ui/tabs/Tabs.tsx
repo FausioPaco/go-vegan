@@ -3,10 +3,12 @@ import { PropsWithChildren, useId } from 'react';
 
 type ITabsProps = {
   tabType?: 'outline' | 'bordered';
+  className?: string;
 };
 
 const Tabs = ({
   tabType = 'outline',
+  className,
   children,
 }: PropsWithChildren<ITabsProps>) => {
   const tabId = useId();
@@ -20,15 +22,13 @@ const Tabs = ({
         ? 'text-grey-700 md:border-b md:border-grey-100'
         : 'text-grey-500  p-2';
 
-    console.log(typeClasses);
-
     return cn(baseClasses, typeClasses);
   };
 
   return (
     <section
       id={tabId}
-      className="mt-6 w-full overflow-hidden md:max-w-[60%]"
+      className={cn('mt-6 w-full overflow-hidden', className)}
       aria-multiselectable="false"
     >
       <ul className={getTabClasses(tabType)} role="tablist">

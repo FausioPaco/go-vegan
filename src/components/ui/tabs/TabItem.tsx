@@ -23,7 +23,7 @@ const TabItem = ({
 
   const getButtonClasses = (tabType: string, isActive: boolean) => {
     const baseClasses =
-      'mb-2 flex w-full cursor-pointer items-center justify-center bg-transparent text-lg font-medium outline-primary-700';
+      'mb-2 flex w-full cursor-pointer items-center justify-center bg-transparent text-xl md:text-2xl font-bold outline-primary-700';
     const typeClasses =
       tabType === 'outline'
         ? 'text-grey-500'

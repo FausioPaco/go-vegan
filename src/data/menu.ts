@@ -158,4 +158,4 @@ export const ALL_DISHES: Dishes = {
       url: 'avocado-sauce.jpg',
     },
   ],
-};
+} as const;
