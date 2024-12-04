@@ -27,6 +27,7 @@ const FaqsContent = () => {
       </div>
 
       {/* Content */}
+      <div className="mx-2 w-full flex-col gap-y-2"></div>
     </section>
   );
 };
