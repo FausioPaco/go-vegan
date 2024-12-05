@@ -21,4 +21,7 @@ export type IconName =
   | 'faqs-dishes'
   | 'faqs-flavor'
   | 'faqs-orders'
-  | 'faqs-origin';
+  | 'faqs-origin'
+  | 'contact-email'
+  | 'contact-location'
+  | 'contact-phone';
