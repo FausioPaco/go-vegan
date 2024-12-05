@@ -1,15 +1,10 @@
 import { ComponentProps, forwardRef, useId } from 'react';
 import cn from '@/utils/cn';
 import { InputError } from '@/components/ui/input-error';
-
-type Option = Omit<ComponentProps<'option'>, 'children'> & {
-  value: string | number;
-  label: string | number;
-};
+import { Option } from '@/types/Select';
 
 interface ISelectProps extends ComponentProps<'select'> {
   label: string;
-  value: string | number;
   options: Option[];
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   ariaLabel?: string;

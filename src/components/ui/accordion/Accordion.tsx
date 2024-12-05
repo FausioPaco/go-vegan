@@ -11,7 +11,7 @@ const Accordion = ({
   children,
   className,
 }: PropsWithChildren<IAccordionProps>) => {
-  const [openItemId, setOpenItemId] = useState<number | undefined>();
+  const [openItemId, setOpenItemId] = useState<number | undefined>(1);
 
   function toggleItem(itemId: number) {
     setOpenItemId((prevId) => (prevId === itemId ? undefined : itemId));
