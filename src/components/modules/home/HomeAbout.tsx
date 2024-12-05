@@ -31,9 +31,7 @@ const HomeAbout = () => {
 
                 <p className="text-lg font-medium"> Wellbeing and Health</p>
               </div>
-            </div>
 
-            <div className="mb-4 flex flex-col gap-y-4">
               <div className="flex items-center gap-x-4">
                 <div className="rounded-full bg-secondary-25/50 p-2 text-secondary-600">
                   <Icon name="animals" className="fill-secondary-600" />
@@ -41,9 +39,6 @@ const HomeAbout = () => {
 
                 <p className="text-lg font-medium">Animal Ethics</p>
               </div>
-            </div>
-
-            <div className="mb-4 flex flex-col gap-y-4">
               <div className="flex items-center gap-x-4">
                 <div className="rounded-full bg-secondary-25/50 p-2 text-secondary-600">
                   <Icon name="eco-friendly" className="fill-secondary-600" />
@@ -53,9 +48,6 @@ const HomeAbout = () => {
                   Environmental Sustainability
                 </p>
               </div>
-            </div>
-
-            <div className="mb-4 flex flex-col gap-y-4">
               <div className="flex items-center gap-x-4">
                 <div className="rounded-full bg-secondary-25/50 p-2 text-secondary-600">
                   <Icon name="better-world" className="fill-secondary-600" />
