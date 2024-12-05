@@ -7,7 +7,7 @@ const FaqsContent = () => {
   const [activeCategory, setActiveCategory] = useState(ALL_CATEGORIES[0].id);
 
   return (
-    <section className="my-8 flex flex-col justify-center gap-y-4 md:flex-row md:gap-y-0">
+    <section className="mb-20 mt-10 flex flex-col justify-center gap-y-4 md:mb-40 md:flex-row md:gap-y-0">
       <div className="flex flex-col space-y-2 px-4 md:w-1/4">
         <p className="mb-2 text-grey-500">
           Select the category of questions you are looking
