@@ -71,6 +71,10 @@ export default {
         '100%': { opacity: '100%' },
       },
     }),
+
+    animation: {
+      fadeIn: 'fadeIn 0.4s ease-in',
+    },
   },
   plugins: [],
 } satisfies Config;
