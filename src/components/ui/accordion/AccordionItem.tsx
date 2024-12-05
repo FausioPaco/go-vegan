@@ -26,7 +26,7 @@ const AccordionItem = ({
       onClick={() => toggleItem(id)}
     >
       <div className="flex justify-between">
-        <h3 className="text-lg font-bold">{title}</h3>
+        <h3 className="text-lg font-semibold">{title}</h3>
         <Icon
           name="chevron-down"
           className={cn(
