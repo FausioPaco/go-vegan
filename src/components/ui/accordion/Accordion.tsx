@@ -1,6 +1,7 @@
 import { PropsWithChildren, useState } from 'react';
 import AccordionItem from './AccordionItem';
 import { AccordionContext, AccordionContextType } from './AccordionContext';
+import cn from '@/utils/cn';
 
 type IAccordionProps = {
   className?: string;
@@ -23,7 +24,14 @@ const Accordion = ({
 
   return (
     <AccordionContext.Provider value={contextValue}>
-      <ul className={className}>{children}</ul>
+      <ul
+        className={cn(
+          'animate-fadeIn flex cursor-pointer flex-col gap-y-4 pl-0',
+          className,
+        )}
+      >
+        {children}
+      </ul>
     </AccordionContext.Provider>
   );
 };
