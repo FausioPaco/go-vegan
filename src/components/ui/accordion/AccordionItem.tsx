@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
-import { useAccordionContext } from './Accordion';
 import cn from '@/utils/cn';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
+import { useAccordionContext } from './AccordionContext';
 
 type IAccordionItemProps = {
   id: number;
@@ -21,7 +21,17 @@ const AccordionItem = ({
   return (
     <li className={cn('rounded border border-grey-200', className)}>
       <h3 onClick={() => toggleItem(id)}>{title}</h3>
-      <motion.div>{children}</motion.div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            key={id}
+            exit={{ opacity: 0, y: -0.2 }}
+            className="pb-4 pt-3 font-sans text-base"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </li>
   );
 };

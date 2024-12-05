@@ -1,27 +1,10 @@
-import { createContext, PropsWithChildren, useContext, useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import AccordionItem from './AccordionItem';
-
-type AccordionContextType = {
-  openItemId: number | undefined;
-  toggleItem: (openItemId: number) => void;
-};
+import { AccordionContext, AccordionContextType } from './AccordionContext';
 
 type IAccordionProps = {
   className?: string;
 };
-
-const AccordionContext = createContext<AccordionContextType>(
-  {} as AccordionContextType,
-);
-
-export function useAccordionContext() {
-  const ctx = useContext(AccordionContext);
-
-  if (!ctx)
-    throw new Error('Accordion components must be wrapped by <Accordion>');
-
-  return ctx;
-}
 
 const Accordion = ({
   children,
