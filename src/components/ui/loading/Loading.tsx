@@ -25,7 +25,7 @@ export const Loading = ({
   };
 
   return (
-    <div className="relative block">
+    <div role="status" className="relative block">
       <span
         className={cn(
           'animate-spinner border-[rgba(255, 255, 255, 0)] relative block rounded-[50%] border-l-2 border-t-2 border-solid border-r-transparent',
