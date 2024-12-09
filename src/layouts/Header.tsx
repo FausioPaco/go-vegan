@@ -7,7 +7,7 @@ import { useCallback, useState } from 'react';
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
   const navItems = [
-    { name: 'ORDER', to: '/orders' },
+    { name: 'ORDER', to: '/order' },
     { name: 'MENU', to: '/menu' },
     { name: 'ABOUT', to: '/about' },
     { name: 'FAQS', to: '/faqs' },
