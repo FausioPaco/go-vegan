@@ -24,4 +24,5 @@ export type IconName =
   | 'faqs-origin'
   | 'contact-email'
   | 'contact-location'
-  | 'contact-phone';
+  | 'contact-phone'
+  | 'checkmark';
