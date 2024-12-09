@@ -37,3 +37,17 @@
     @apply text-sm;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn {
+    animation: none;
+  }
+
+  .animate-spinner {
+    animation: none;
+  }
+
+  .animate-blink {
+    animation: none;
+  }
+}
