@@ -1,9 +1,10 @@
+import { memo } from 'react';
 import { Icon } from '@/components/ui/icon';
 import { Link } from 'react-router-dom';
 
-const ContactSocial = () => {
+const ContactSocial = memo(() => {
   return (
-    <div className="flex flex-col gap-y-3">
+    <div className="flex flex-col gap-y-3 px-5">
       <p className="mb-2 text-sm text-grey-500">Where you can find us</p>
       <div className="flex items-center gap-x-4">
         <div className="rounded-full bg-primary-25/50 p-2">
@@ -54,6 +55,6 @@ const ContactSocial = () => {
       </div>
     </div>
   );
-};
+});
 
 export default ContactSocial;

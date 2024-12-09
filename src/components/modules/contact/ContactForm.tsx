@@ -1,10 +1,10 @@
+import { useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
 import { Option } from '@/types/Select';
-import { useForm, SubmitHandler } from 'react-hook-form';
 import { Select } from '@/components/ui/select';
 import { TextArea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
 import { Loading } from '@/components/ui/loading';
 
 const SUBJECTS = [
@@ -20,7 +20,11 @@ type ContactInputs = {
   message: string;
 };
 
-const ContactForm = () => {
+type IContactForm = {
+  onFinish: () => void;
+};
+
+const ContactForm = ({ onFinish }: IContactForm) => {
   const [isSubmiting, setIsSubmiting] = useState(false);
 
   const {
@@ -32,10 +36,14 @@ const ContactForm = () => {
   const onSubmit: SubmitHandler<ContactInputs> = (data) => {
     setIsSubmiting(true);
     console.log(data);
+
+    setTimeout(() => {
+      onFinish();
+    }, 1000);
   };
 
   return (
-    <div className="flex flex-col space-y-2 px-4">
+    <div className="flex animate-fadeIn flex-col space-y-2 px-4">
       <p className="mb-2 text-grey-500">
         Please fill out our contact form and we will get back to you shortly.
       </p>
@@ -91,11 +99,12 @@ const ContactForm = () => {
         />
 
         <Button
+          size="md"
           type="submit"
           onClick={() => onSubmit}
           aria-readonly={isSubmiting}
         >
-          {isSubmiting ? <Loading size="sm" /> : 'Send Message'}
+          {isSubmiting ? <Loading size="sm" /> : 'Send message'}
         </Button>
       </form>
     </div>
