@@ -25,15 +25,21 @@ export const Loading = ({
   };
 
   return (
-    <div role="status" className="relative block">
+    <div
+      role="status"
+      className={cn(
+        'relative animate-fadeIn',
+        orientation === 'vertical' && 'flex flex-col items-center',
+      )}
+    >
       <span
         className={cn(
-          'animate-spinner border-[rgba(255, 255, 255, 0)] relative block rounded-[50%] border-l-2 border-t-2 border-solid border-r-transparent',
+          'animate-spinner border-[rgba(255, 255, 255, 0)] relative block rounded-full border-l-2 border-t-2 border-solid border-r-transparent',
           loadingSizes[size],
           loadingColors[color],
         )}
       >
-        <span className="sr-only">{message || 'Loading, please wait.'}</span>
+        <span className="sr-only">{message || 'Loading, please wait..'}</span>
       </span>
 
       {message && (

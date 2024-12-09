@@ -1,10 +1,11 @@
 import { Input } from '@/components/ui/input';
-
 import { Option } from '@/types/Select';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Select } from '@/components/ui/select';
 import { TextArea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import { Loading } from '@/components/ui/loading';
 
 const SUBJECTS = [
   { label: 'Orders', value: 'Orders' },
@@ -20,6 +21,8 @@ type ContactInputs = {
 };
 
 const ContactForm = () => {
+  const [isSubmiting, setIsSubmiting] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -27,6 +30,7 @@ const ContactForm = () => {
   } = useForm<ContactInputs>();
 
   const onSubmit: SubmitHandler<ContactInputs> = (data) => {
+    setIsSubmiting(true);
     console.log(data);
   };
 
@@ -35,7 +39,7 @@ const ContactForm = () => {
       <p className="mb-2 text-grey-500">
         Please fill out our contact form and we will get back to you shortly.
       </p>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form aria-busy={isSubmiting} onSubmit={handleSubmit(onSubmit)}>
         <Input
           label="Name:"
           type="text"
@@ -48,6 +52,7 @@ const ContactForm = () => {
           })}
           placeholder="Enter your full name"
           error={errors.name?.message}
+          readOnly={isSubmiting}
         />
 
         <Input
@@ -71,6 +76,7 @@ const ContactForm = () => {
             required: 'The subject is required',
           })}
           error={errors.subject?.message}
+          aria-readonly={isSubmiting}
         />
 
         <TextArea
@@ -81,10 +87,15 @@ const ContactForm = () => {
           })}
           placeholder="Describe your message here"
           error={errors.name?.message}
+          readOnly={isSubmiting}
         />
 
-        <Button type="submit" onClick={() => onSubmit}>
-          Send Message
+        <Button
+          type="submit"
+          onClick={() => onSubmit}
+          aria-readonly={isSubmiting}
+        >
+          {isSubmiting ? <Loading size="sm" /> : 'Send Message'}
         </Button>
       </form>
     </div>
