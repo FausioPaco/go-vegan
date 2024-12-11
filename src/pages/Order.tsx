@@ -1,5 +1,5 @@
 import Meta from '@/components/meta';
-import { OrderHero } from '@/components/modules/order';
+import { OrderForm, OrderHero } from '@/components/modules/order';
 import { motion } from 'motion/react';
 
 const Order = () => {
@@ -25,7 +25,7 @@ const Order = () => {
 
       <main>
         <OrderHero />
-        <p>Main Content Here</p>
+        <OrderForm />
       </main>
     </motion.div>
   );

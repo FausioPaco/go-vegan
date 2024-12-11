@@ -1,3 +1,4 @@
 import OrderHero from './OrderHero';
+import OrderForm from './OrderForm';
 
-export { OrderHero };
+export { OrderHero, OrderForm };
