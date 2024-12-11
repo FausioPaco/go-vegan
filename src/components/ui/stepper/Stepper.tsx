@@ -31,7 +31,12 @@ const Stepper = ({
       value={{ activeOption, setActiveOption: onChangeOption, stepsTaken }}
     >
       <div className="flex items-center justify-center">
-        <div className="relative mb-4 flex items-center justify-between md:space-x-32">
+        <p className="text-xl md:hidden">
+          Step <b className="font-bold text-primary-600">{activeOption}</b> of{' '}
+          {options.length}
+        </p>
+
+        <div className="relative mb-4 hidden items-center justify-between md:flex md:space-x-32">
           <progress
             className="[&::-webkit-progress-value]:ease absolute top-[30%] z-10 mb-7 ml-[15%] block h-1 w-[80%] appearance-none overflow-hidden rounded-lg bg-grey-100 [&::-moz-progress-bar]:bg-primary-600 [&::-ms-fill]:bg-primary-600 [&::-webkit-progress-bar]:bg-grey-100 [&::-webkit-progress-value]:bg-primary-600 [&::-webkit-progress-value]:transition-all [&::-webkit-progress-value]:duration-300"
             id={stepperId}
