@@ -15,7 +15,7 @@ const HomeDishesItem = ({ category }: IDishesItemProps) => {
       role="button"
       tabIndex={0}
       className="flex cursor-pointer items-center gap-x-4 rounded-2xl border border-white bg-white drop-shadow transition-all hover:-translate-y-1 hover:border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 md:min-w-[560px]"
-      onClick={() => navigate('/about')}
+      onClick={() => navigate('/order')}
     >
       <img
         width={231}
