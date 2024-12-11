@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import DefaultLayout from './layouts/DefaultLayout';
 import Home from './pages/Home';
+import LoadingPage from './layouts/LoadingPage';
 
 const About = lazy(() => import('./pages/About'));
 const Menu = lazy(() => import('./pages/Menu'));
@@ -17,7 +18,7 @@ const App = () => {
         <Route
           path="about"
           element={
-            <Suspense fallback={<span>Loading...</span>}>
+            <Suspense fallback={<LoadingPage />}>
               <About />
             </Suspense>
           }
@@ -25,7 +26,7 @@ const App = () => {
         <Route
           path="menu"
           element={
-            <Suspense fallback={<span>Loading...</span>}>
+            <Suspense fallback={<LoadingPage />}>
               <Menu />
             </Suspense>
           }
@@ -33,7 +34,7 @@ const App = () => {
         <Route
           path="faqs"
           element={
-            <Suspense fallback={<span>Loading...</span>}>
+            <Suspense fallback={<LoadingPage />}>
               <Faqs />
             </Suspense>
           }
@@ -41,7 +42,7 @@ const App = () => {
         <Route
           path="contact"
           element={
-            <Suspense fallback={<span>Loading...</span>}>
+            <Suspense fallback={<LoadingPage />}>
               <Contact />
             </Suspense>
           }
@@ -50,7 +51,7 @@ const App = () => {
         <Route
           path="order"
           element={
-            <Suspense fallback={<span>Loading...</span>}>
+            <Suspense fallback={<LoadingPage />}>
               <Order />
             </Suspense>
           }
