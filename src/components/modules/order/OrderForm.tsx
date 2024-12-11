@@ -11,9 +11,15 @@ const options = [
 
 const OrderForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [stepsTaken, setStepsTaken] = useState<number[]>([]);
 
   const handleStepChange = useCallback((stepNumber: number) => {
     setCurrentStep(stepNumber);
+    setStepsTaken((prevStepsTaken) => {
+      if (stepNumber >= 1) return [...prevStepsTaken, stepNumber - 1];
+
+      return [1];
+    });
   }, []);
 
   return (
@@ -23,6 +29,7 @@ const OrderForm = () => {
         max={100}
         options={options}
         activeOption={currentStep}
+        stepsTaken={stepsTaken}
         onChangeOption={handleStepChange}
       />
     </div>

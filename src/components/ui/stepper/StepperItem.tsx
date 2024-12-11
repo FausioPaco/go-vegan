@@ -1,5 +1,6 @@
-import cn from '@/utils/cn';
 import { useStepperContext } from './StepperContext';
+import cn from '@/utils/cn';
+import { Icon } from '../icon';
 
 type IStepperItemProps = {
   stepNumber: number;
@@ -7,19 +8,31 @@ type IStepperItemProps = {
 };
 
 const StepperItem = ({ stepNumber, stepDescription }: IStepperItemProps) => {
-  const { activeOption, setActiveOption } = useStepperContext();
+  const { activeOption, setActiveOption, stepsTaken } = useStepperContext();
 
   return (
     <div
-      className="z-30 text-center"
+      className="z-30 flex flex-col items-center text-center"
       onClick={() => setActiveOption(stepNumber)}
     >
       <button
-        className="text-medium size-[40px] rounded-full border-none bg-grey-25 text-grey-500 aria-expanded:bg-primary-600 aria-expanded:text-white"
+        className={cn(
+          'text-medium flex size-[40px] items-center justify-center rounded-full border-none bg-grey-25 text-center text-grey-500 aria-expanded:bg-primary-600 aria-expanded:text-white',
+          stepsTaken.includes(stepNumber) && 'bg-primary-600 text-white',
+        )}
         type="button"
         aria-expanded={activeOption === stepNumber}
       >
-        {stepNumber}
+        {stepsTaken.includes(stepNumber) ? (
+          <Icon
+            name="checkmark"
+            width={24}
+            height={24}
+            className="fill-white"
+          />
+        ) : (
+          stepNumber
+        )}
       </button>
       <p
         className={cn(

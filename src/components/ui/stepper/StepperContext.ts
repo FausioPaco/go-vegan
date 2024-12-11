@@ -2,6 +2,7 @@ import { createContext, useContext } from 'react';
 
 export type StepperContextType = {
   activeOption: number;
+  stepsTaken: number[];
   setActiveOption: (stepNumber: number) => void;
 };
 
