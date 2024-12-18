@@ -1,3 +1,4 @@
+import { RangeBar } from '@/components/ui/rangebar';
 import { Stepper } from '@/components/ui/stepper';
 import { useCallback, useState } from 'react';
 
@@ -12,6 +13,11 @@ const options = [
 const OrderForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [stepsTaken, setStepsTaken] = useState<number[]>([]);
+  const [numberOfPeople, setNumberOfPeople] = useState(10);
+
+  const handleRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNumberOfPeople(parseInt(e.target.value));
+  };
 
   const handleStepChange = useCallback((stepNumber: number) => {
     setCurrentStep(stepNumber);
@@ -32,6 +38,14 @@ const OrderForm = () => {
         stepsTaken={stepsTaken}
         onChangeOption={handleStepChange}
       />
+
+      <div className="mt-2">
+        <RangeBar
+          label="Number of people:"
+          value={numberOfPeople}
+          onChange={handleRangeChange}
+        />
+      </div>
     </div>
   );
 };
