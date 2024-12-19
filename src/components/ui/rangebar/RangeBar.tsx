@@ -21,8 +21,8 @@ const RangeBar = forwardRef<HTMLInputElement, IRangeBarProps>(
     }, [value]);
 
     return (
-      <div className="flex flex-col items-center space-y-4">
-        <div className="relative w-96">
+      <div className="flex w-full flex-col items-center space-y-4">
+        <div className="relative w-full">
           <div
             className={`absolute left-1/2 -translate-x-1/2 -translate-y-2 transform rounded-md bg-primary-600 px-3 py-1 text-sm font-medium text-white transition-opacity duration-300 ${
               isHovered ? 'opacity-100' : 'opacity-0'
