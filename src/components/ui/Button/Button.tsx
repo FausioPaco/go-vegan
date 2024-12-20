@@ -9,12 +9,14 @@ type IButtonProps = ComponentProps<'button'> & {
   size?: ButtonSize;
   className?: string;
   icon?: IconName;
+  iconPosition?: 'right' | 'left';
   ariaLabel?: string;
 };
 
 const Button = ({
   variant = 'primary',
   size = 'md',
+  iconPosition = 'left',
   className,
   icon,
   ariaLabel,
@@ -42,15 +44,20 @@ const Button = ({
         'min-w-[96px] font-medium transition-all duration-300 focus:outline-none focus:ring focus:ring-primary-500',
         buttonVariants[variant],
         buttonSizes[size],
-        icon && 'flex items-center gap-x-1',
+        icon && 'flex items-center gap-x-2',
         className,
       )}
       aria-label={ariaLabel || undefined}
       title={ariaLabel || undefined}
       {...props}
     >
-      {icon && <Icon name={icon} className="fill-white" />}
+      {icon && iconPosition == 'left' && (
+        <Icon name={icon} className="fill-white" />
+      )}
       <span>{children}</span>
+      {icon && iconPosition == 'right' && (
+        <Icon name={icon} className="fill-white" />
+      )}
     </button>
   );
 };
