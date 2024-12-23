@@ -18,10 +18,16 @@ const OrderForm = () => {
   const handleStepChange = useCallback((stepNumber: number) => {
     setCurrentStep(stepNumber);
     setStepsTaken((prevStepsTaken) => {
-      if (stepNumber >= 1) return [...prevStepsTaken, stepNumber - 1];
-
-      return [1];
+      if (stepNumber > 1) return [...prevStepsTaken, stepNumber - 1];
+      return [];
     });
+  }, []);
+
+  const handlePreviousStepChange = useCallback((stepNumber: number) => {
+    setCurrentStep((prevStep) => prevStep - 1);
+    setStepsTaken((prevStepsTaken) => [
+      ...prevStepsTaken.filter((f) => f !== stepNumber - 1),
+    ]);
   }, []);
 
   return (
@@ -40,7 +46,10 @@ const OrderForm = () => {
       )}
 
       {currentStep === 2 && (
-        <OrderDetailsStep onFinish={() => handleStepChange(3)} />
+        <OrderDetailsStep
+          onFinish={() => handleStepChange(3)}
+          onPrevious={() => handlePreviousStepChange(2)}
+        />
       )}
     </div>
   );

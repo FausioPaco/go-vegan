@@ -16,9 +16,10 @@ type IDetailsInput = {
 
 type IDetailsForm = {
   onFinish: () => void;
+  onPrevious: () => void;
 };
 
-const OrderDetailsStep = ({ onFinish }: IDetailsForm) => {
+const OrderDetailsStep = ({ onFinish, onPrevious }: IDetailsForm) => {
   const [isSubmiting, setIsSubmiting] = useState(false);
   const {
     register,
@@ -99,25 +100,41 @@ const OrderDetailsStep = ({ onFinish }: IDetailsForm) => {
             })}
             onChange={(time) => setValue('time', time)}
             error={errors.time?.message}
+            timeOnly
           />
 
           <RangeBar
             label="Number of People"
-            value={watch('numberOfPeople') || 10}
+            value={watch('numberOfPeople')}
             {...register('numberOfPeople', {
               required: 'The number of people is required',
               valueAsNumber: true,
+              value: 10,
             })}
+            onChange={(event) =>
+              setValue('numberOfPeople', parseInt(event?.target.value))
+            }
             error={errors.numberOfPeople?.message}
           />
 
-          <div className="flex space-x-2">
+          <div className="mt-5 flex space-x-2">
+            <Button
+              size="md"
+              variant="secondary"
+              type="button"
+              onClick={onPrevious}
+              aria-readonly={isSubmiting}
+              disabled={isSubmiting}
+              icon="arrow-left"
+            >
+              Previous
+            </Button>
+
             <Button
               size="md"
               type="submit"
               onClick={() => onSubmit}
               aria-readonly={isSubmiting}
-              className="mt-5"
               icon="arrow-right"
               iconPosition="right"
             >
