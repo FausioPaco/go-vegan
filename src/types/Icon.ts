@@ -25,4 +25,6 @@ export type IconName =
   | 'contact-email'
   | 'contact-location'
   | 'contact-phone'
-  | 'checkmark';
+  | 'checkmark'
+  | 'calendar'
+  | 'clock';
