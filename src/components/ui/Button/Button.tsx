@@ -21,7 +21,7 @@ const Button = ({
   className,
   icon,
   ariaLabel,
-  readonly,
+  readonly = false,
   children,
   ...props
 }: PropsWithChildren<IButtonProps>) => {
