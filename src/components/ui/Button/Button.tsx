@@ -43,10 +43,10 @@ const Button = ({
   return (
     <button
       className={cn(
-        'min-w-[96px] font-medium transition-all duration-300 focus:outline-none focus:ring focus:ring-primary-500',
+        'group min-w-[96px] font-medium transition-all duration-300 focus:outline-none focus:ring focus:ring-primary-500',
         buttonVariants[variant],
         buttonSizes[size],
-        icon && 'flex items-center gap-x-2',
+        icon && !readonly && 'flex items-center gap-x-2',
         className,
       )}
       aria-label={ariaLabel || undefined}
@@ -54,11 +54,25 @@ const Button = ({
       {...props}
     >
       {icon && !readonly && iconPosition == 'left' && (
-        <Icon name={icon} className="fill-white" />
+        <Icon
+          name={icon}
+          className={
+            variant === 'primary'
+              ? 'fill-white'
+              : 'fill-primary-600 group-hover:fill-white'
+          }
+        />
       )}
       <span>{children}</span>
       {icon && !readonly && iconPosition == 'right' && (
-        <Icon name={icon} className="fill-white" />
+        <Icon
+          name={icon}
+          className={
+            variant === 'primary'
+              ? 'fill-white'
+              : 'fill-primary-700 group-hover:fill-white'
+          }
+        />
       )}
     </button>
   );

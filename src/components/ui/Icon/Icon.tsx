@@ -12,7 +12,7 @@ const Icon = ({ name, ...props }: IconProps) => {
   return (
     <>
       {loading && (
-        <div className="bg-slate-400 h-8 w-8 animate-pulse rounded-full"></div>
+        <div className="bg-slate-400 animate-pulse h-8 w-8 rounded-full"></div>
       )}
       {SvgIcon && <SvgIcon {...props} />}
     </>

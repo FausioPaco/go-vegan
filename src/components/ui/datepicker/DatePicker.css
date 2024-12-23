@@ -73,3 +73,13 @@
 .react-datepicker__input-container .react-datepicker__calendar-icon {
   padding: 0.5rem;
 }
+
+.react-datepicker__day--disabled,
+.react-datepicker__day--disabled:hover,
+.react-datepicker__month-text--disabled,
+.react-datepicker__month-text--disabled:hover,
+.react-datepicker__quarter-text--disabled,
+.react-datepicker__quarter-text--disabled:hover,
+.react-datepicker__year-text--disabled {
+  @apply bg-transparent text-grey-500;
+}
