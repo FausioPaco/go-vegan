@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { Stepper } from '@/components/ui/stepper';
 import OrderAccountStep from './OrderAccountStep';
+import OrderDetailsStep from './OrderDetailsStep';
 
 const options = [
   { stepNumber: 1, description: 'Account' },
@@ -35,7 +36,11 @@ const OrderForm = () => {
       />
 
       {currentStep === 1 && (
-        <OrderAccountStep onFinish={() => setCurrentStep(2)} />
+        <OrderAccountStep onFinish={() => handleStepChange(2)} />
+      )}
+
+      {currentStep === 2 && (
+        <OrderDetailsStep onFinish={() => handleStepChange(3)} />
       )}
     </div>
   );
