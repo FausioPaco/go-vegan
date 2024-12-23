@@ -1,19 +1,29 @@
 import { useStepperContext } from './StepperContext';
 import cn from '@/utils/cn';
 import { Icon } from '../icon';
+import { useCallback } from 'react';
 
 type IStepperItemProps = {
   stepNumber: number;
   stepDescription: string;
+  enableSkip?: boolean;
 };
 
-const StepperItem = ({ stepNumber, stepDescription }: IStepperItemProps) => {
+const StepperItem = ({
+  stepNumber,
+  stepDescription,
+  enableSkip = false,
+}: IStepperItemProps) => {
   const { activeOption, setActiveOption, stepsTaken } = useStepperContext();
+
+  const handleSetActiveOption = useCallback((stepNumber: number) => {
+    if (enableSkip) setActiveOption(stepNumber);
+  }, []);
 
   return (
     <div
       className="z-30 flex flex-col items-center text-center"
-      onClick={() => setActiveOption(stepNumber)}
+      onClick={() => handleSetActiveOption(stepNumber)}
     >
       <button
         className={cn(
