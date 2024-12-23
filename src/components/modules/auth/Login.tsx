@@ -77,6 +77,7 @@ const Login = ({ onFinish, onSignUp }: ILoginForm) => {
               type="submit"
               onClick={() => onSubmit}
               aria-readonly={isSubmiting}
+              readonly={isSubmiting}
               className="mt-5"
               icon="arrow-right"
               iconPosition="right"
@@ -90,10 +91,10 @@ const Login = ({ onFinish, onSignUp }: ILoginForm) => {
               type="button"
               onClick={onSignUp}
               aria-readonly={isSubmiting}
-              readonly={isSubmiting}
+              disabled={isSubmiting}
               className="mt-5"
             >
-              {isSubmiting ? <Loading size="sm" /> : 'Sign up'}
+              Sign up
             </Button>
           </div>
         </form>
