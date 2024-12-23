@@ -67,7 +67,7 @@ const SignUp = ({ onFinish, onSignIn }: ISignUpForm) => {
             {...register('name', {
               required: 'Your name is required',
               pattern: {
-                value: /^[A-Za-z]+$/i,
+                value: /^[A-Za-z\s]+$/i,
                 message: 'Must be a valid name',
               },
             })}
@@ -112,13 +112,14 @@ const SignUp = ({ onFinish, onSignIn }: ISignUpForm) => {
               validate: (value) =>
                 value === password || 'Passwords do not match',
             })}
-            placeholder="Enter your password"
+            placeholder="Re-enter your password"
             error={errors.passwordConfirm?.message}
           />
 
           <Button
             type="submit"
             onClick={() => onSubmit}
+            readonly={isSubmiting}
             aria-readonly={isSubmiting}
             className="mt-5"
             icon="arrow-right"

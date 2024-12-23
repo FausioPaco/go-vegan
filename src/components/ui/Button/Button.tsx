@@ -11,6 +11,7 @@ type IButtonProps = ComponentProps<'button'> & {
   icon?: IconName;
   iconPosition?: 'right' | 'left';
   ariaLabel?: string;
+  readonly?: boolean;
 };
 
 const Button = ({
@@ -20,6 +21,7 @@ const Button = ({
   className,
   icon,
   ariaLabel,
+  readonly,
   children,
   ...props
 }: PropsWithChildren<IButtonProps>) => {
@@ -51,11 +53,11 @@ const Button = ({
       title={ariaLabel || undefined}
       {...props}
     >
-      {icon && iconPosition == 'left' && (
+      {icon && !readonly && iconPosition == 'left' && (
         <Icon name={icon} className="fill-white" />
       )}
       <span>{children}</span>
-      {icon && iconPosition == 'right' && (
+      {icon && !readonly && iconPosition == 'right' && (
         <Icon name={icon} className="fill-white" />
       )}
     </button>
