@@ -24,10 +24,11 @@ const cartSlice = createSlice({
         (e) => e.dish.id === currentDish.id,
       );
 
-      if (existingItemIndex > -1) {
+      if (existingItemIndex === -1) {
         state.items.push({
           dishCategory: currentCategory,
           dish: currentDish,
+          quantity: totalQuantity,
           totalPrice: (totalQuantity * currentDish.price) / currentDish.perUnit,
         });
       } else {

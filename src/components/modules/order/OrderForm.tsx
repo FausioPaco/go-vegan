@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { Stepper } from '@/components/ui/stepper';
 import OrderAccountStep from './OrderAccountStep';
 import OrderDetailsStep from './OrderDetailsStep';
+import OrderChoicesStep from './OrderChoicesStep';
 
 const options = [
   { stepNumber: 1, description: 'Account' },
@@ -12,7 +13,7 @@ const options = [
 ];
 
 const OrderForm = () => {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(3);
   const [stepsTaken, setStepsTaken] = useState<number[]>([]);
 
   const handleStepChange = useCallback((stepNumber: number) => {
@@ -47,6 +48,13 @@ const OrderForm = () => {
 
       {currentStep === 2 && (
         <OrderDetailsStep
+          onFinish={() => handleStepChange(3)}
+          onPrevious={() => handlePreviousStepChange(2)}
+        />
+      )}
+
+      {currentStep === 3 && (
+        <OrderChoicesStep
           onFinish={() => handleStepChange(3)}
           onPrevious={() => handlePreviousStepChange(2)}
         />
