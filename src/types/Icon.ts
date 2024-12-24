@@ -27,4 +27,6 @@ export type IconName =
   | 'contact-phone'
   | 'checkmark'
   | 'calendar'
+  | 'plus'
+  | 'close'
   | 'clock';
