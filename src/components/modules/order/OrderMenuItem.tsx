@@ -21,8 +21,9 @@ type IOrderMenuItemInput = {
 const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const dispatch = useDispatch();
-  const [isAdding, setIsAdding] = useState(false);
-  const [isSubmiting, setIsSubmiting] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'adding' | 'submitting'>(
+    'idle',
+  );
 
   const {
     register,
@@ -31,10 +32,10 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
     formState: { errors },
   } = useForm<IOrderMenuItemInput>();
 
-  const onSubmit: SubmitHandler<IOrderMenuItemInput> = (
+  const handleAddItem: SubmitHandler<IOrderMenuItemInput> = (
     data: IOrderMenuItemInput,
   ) => {
-    setIsSubmiting(true);
+    setStatus('submitting');
     dispatch(
       addItem({
         category: category as keyof Dishes,
@@ -43,19 +44,19 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
       }),
     );
 
-    setIsSubmiting(false);
-    setIsAdding(false);
+    setStatus('idle');
   };
 
   const itemIndex = cartItems.findIndex(
     (cartItem) => cartItem.dish.id === dish.id,
   );
 
-  const removeMenuItem = () => {
+  const getDishImagePath = (category: string, url: string) =>
+    `/menu/${category}/${url}`;
+
+  const handleRemoveItem = () => {
     dispatch(removeItem(dish.id));
-    reset({
-      quantity: undefined,
-    });
+    reset({ quantity: dish.perUnit });
   };
 
   return (
@@ -63,7 +64,7 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
       <img
         width={520}
         height={400}
-        src={`/menu/${category}/${dish.url}`}
+        src={getDishImagePath(category, dish.url)}
         alt={`${dish.title} preview image`}
         className="block max-h-fit w-full rounded md:max-w-[260px]"
       />
@@ -80,35 +81,17 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
         </p>
 
         {itemIndex > -1 && (
-          <div className="mt-2 flex animate-fadeIn items-center space-x-3">
-            <div className="flex items-center space-x-1">
-              <Icon name="checkmark" className="size-[20px] fill-primary-700" />
-              <p className="mb-0 font-bold text-primary-700">
-                Added (
-                {pluralizeUnit(
-                  cartItems[itemIndex].quantity,
-                  cartItems[itemIndex].dish.unit,
-                )}
-                )
-              </p>
-            </div>
-            <Button
-              variant="secondary"
-              size="sm"
-              type="submit"
-              icon="close"
-              onClick={() => removeMenuItem()}
-            >
-              Remove
-            </Button>
-          </div>
+          <AddedDishItemMessage
+            quantity={cartItems[itemIndex].quantity}
+            unit={cartItems[itemIndex].dish.unit}
+            onRemove={handleRemoveItem}
+          />
         )}
 
-        {isAdding && (
+        {status === 'adding' && (
           <form
             className="mt-2 animate-fadeIn"
-            aria-busy={isSubmiting}
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(handleAddItem)}
           >
             <Input
               label={`Quantity (${dish.unit})`}
@@ -124,14 +107,8 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
               error={errors.quantity?.message}
             />
 
-            <div className="mt-2 flex animate-fadeIn flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-              <Button
-                size="sm"
-                type="submit"
-                icon="plus"
-                onClick={() => setIsAdding(true)}
-                className="w-fit"
-              >
+            <div className="mt-2 flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+              <Button size="sm" type="submit" icon="plus" className="w-fit">
                 Add now
               </Button>
 
@@ -139,7 +116,7 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
                 variant="secondary"
                 size="sm"
                 type="button"
-                onClick={() => setIsAdding(false)}
+                onClick={() => setStatus('idle')}
                 className="w-fit"
               >
                 Cancel
@@ -148,14 +125,14 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
           </form>
         )}
 
-        {!isAdding && itemIndex === -1 && (
+        {status === 'idle' && itemIndex === -1 && (
           <Button
             size="sm"
             variant="secondary"
             type="button"
             icon="plus"
             className="mt-2 animate-fadeIn"
-            onClick={() => setIsAdding(true)}
+            onClick={() => setStatus('adding')}
           >
             Add food
           </Button>
@@ -164,5 +141,35 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
     </div>
   );
 };
+
+type AddDishItemProps = {
+  quantity: number;
+  unit: string;
+  onRemove: () => void;
+};
+
+const AddedDishItemMessage = ({
+  quantity,
+  unit,
+  onRemove,
+}: AddDishItemProps) => (
+  <div className="mt-2 flex animate-fadeIn items-center space-x-3">
+    <div className="flex items-center space-x-1">
+      <Icon name="checkmark" className="size-[20px] fill-primary-700" />
+      <p className="mb-0 font-bold text-primary-700">
+        Added ({pluralizeUnit(quantity, unit)})
+      </p>
+    </div>
+    <Button
+      variant="secondary"
+      size="sm"
+      type="button"
+      icon="close"
+      onClick={onRemove}
+    >
+      Remove
+    </Button>
+  </div>
+);
 
 export default OrderMenuItem;

@@ -64,7 +64,7 @@ export const ALL_DISHES: Dishes = {
   ],
   pastas: [
     {
-      id: 1,
+      id: 4,
       title: 'Chickpea Pasta with Mushrooms',
       description:
         'A flavorful and nutritious dish featuring chickpea-based pasta tossed with fresh spinach and sautéed mushrooms.',
@@ -74,7 +74,7 @@ export const ALL_DISHES: Dishes = {
       url: 'chickpea-pasta-with-mushrooms.jpg',
     },
     {
-      id: 2,
+      id: 5,
       title: 'Primavera Pasta with Seasonal Veggies',
       description:
         'A light and colorful dish featuring al dente pasta mixed with a medley of fresh seasonal vegetables. This recipe highlights natural flavors with a refreshing touch, making it a perfect choice for a healthy and vibrant meal.',
@@ -84,7 +84,7 @@ export const ALL_DISHES: Dishes = {
       url: 'primavera-pasta-with-seasonal-veggies.jpg',
     },
     {
-      id: 3,
+      id: 6,
       title: 'Roasted Garlic and Spinach Pasta',
       description:
         'A simple yet flavorful dish featuring al dente pasta paired with fresh spinach, elevated by the rich, caramelized taste of roasted garlic.',
@@ -96,7 +96,7 @@ export const ALL_DISHES: Dishes = {
   ],
   salads: [
     {
-      id: 1,
+      id: 7,
       title: 'Sweet Potato Salad',
       description:
         'Salad that uses cooked sweet potatoes, mixed with ingredients such as red onion, peppers, coriander and citrus seasoning',
@@ -106,7 +106,7 @@ export const ALL_DISHES: Dishes = {
       url: 'sweet-potato-salad.jpg',
     },
     {
-      id: 2,
+      id: 8,
       title: 'Taco Salad',
       description:
         'It combines ingredients such as lettuce, tomato, cheese, taco-seasoned ground beef, sour cream and crispy nachos.',
@@ -116,7 +116,7 @@ export const ALL_DISHES: Dishes = {
       url: 'taco-salad.jpg',
     },
     {
-      id: 3,
+      id: 9,
       title: 'Green Salad with Avocado and Seeds',
       description:
         'A fresh and nutritious salad featuring crisp green leaves, creamy avocado chunks, and a mix of nutrient-packed seeds. Perfect for a light and healthy meal, full of natural flavors and balanced textures.',
@@ -128,7 +128,7 @@ export const ALL_DISHES: Dishes = {
   ],
   sauces: [
     {
-      id: 1,
+      id: 10,
       title: 'Vegan Tomato Sauce',
       description:
         'A rich and flavorful vegan tomato sauce made with ripe tomatoes, garlic, onions, and a blend of aromatic herbs.',
@@ -138,7 +138,7 @@ export const ALL_DISHES: Dishes = {
       url: 'vegan-tomato-sauce.jpg',
     },
     {
-      id: 2,
+      id: 11,
       title: 'Rosemary Garlic Aioli Sauce',
       description:
         'An overhead shot of a small bowl filled with creamy aioli sauce, flavored with rosemary and garlic. It blends the smoothness of aioli with the refreshing taste of rosemary and the boldness of garlic.',
@@ -148,7 +148,7 @@ export const ALL_DISHES: Dishes = {
       url: 'rosemary-garlic-aioli-sauce.jpg',
     },
     {
-      id: 3,
+      id: 12,
       title: 'Avocado Sauce',
       description:
         'A creamy and fresh sauce made with ripe avocado, lime juice, cilantro, onion, and chili. Perfect for pairing with tacos, tortillas, salads, or as a dip for veggies, this sauce offers a light and nutritious flavor.',
