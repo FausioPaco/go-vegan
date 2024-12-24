@@ -29,7 +29,7 @@ const Button = ({
     primary:
       'rounded-full bg-gradient-to-t from-primary-600 to-primary-500 text-white hover:shadow-sm hover:shadow-primary-700/70 hover:-translate-y-1',
     secondary:
-      'rounded-full border-primary-600 shadow-md border-2 text-primary-600 hover:bg-primary-600 hover:text-white hover:-translate-y-1',
+      'rounded-full border-primary-700 shadow-md border-2 text-primary-700 hover:bg-primary-700 hover:text-white hover:-translate-y-1',
     tertiary:
       'flex items-center gap-x-2 text-primary-700 underline outline-none hover:text-primary-800',
   };
@@ -46,7 +46,7 @@ const Button = ({
         'group min-w-[96px] font-medium transition-all duration-300 focus:outline-none focus:ring focus:ring-primary-500',
         buttonVariants[variant],
         buttonSizes[size],
-        icon && !readonly && 'flex items-center gap-x-2',
+        icon && !readonly && 'flex items-center gap-x-1',
         className,
       )}
       aria-label={ariaLabel || undefined}
@@ -59,7 +59,7 @@ const Button = ({
           className={
             variant === 'primary'
               ? 'fill-white'
-              : 'fill-primary-600 group-hover:fill-white'
+              : 'fill-primary-700 group-hover:fill-white'
           }
         />
       )}
