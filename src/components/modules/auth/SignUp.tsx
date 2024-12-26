@@ -1,8 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Loading } from '@/components/ui/loading';
+import { login } from '@/store/reducers/userReducer';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 
 type SignUpInputs = {
   name: string;
@@ -18,6 +20,7 @@ type ISignUpForm = {
 
 const SignUp = ({ onFinish, onSignIn }: ISignUpForm) => {
   const [isSubmiting, setIsSubmiting] = useState(false);
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -30,7 +33,7 @@ const SignUp = ({ onFinish, onSignIn }: ISignUpForm) => {
 
   const onSubmit: SubmitHandler<SignUpInputs> = (data) => {
     setIsSubmiting(true);
-    console.log(data);
+    dispatch(login({ name: data.name, email: data.email }));
 
     setTimeout(() => {
       onFinish();
