@@ -6,17 +6,24 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { AppDatePicker as DatePicker } from '@/components/ui/datepicker';
 import { Button } from '@/components/ui/button';
 import { Loading } from '@/components/ui/loading';
-import { OrderDetails } from '@/types/Order';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setDetails } from '@/store/reducers/cartReducer';
+import { RootState } from '@/store';
 
 type IDetailsForm = {
   onFinish: () => void;
-  onPrevious: () => void;
 };
 
-const OrderDetailsStep = ({ onFinish, onPrevious }: IDetailsForm) => {
+type OrderDetailsInput = {
+  location: string;
+  date: Date | null;
+  time: Date | null;
+  numberOfPeople: number;
+};
+
+const OrderDetailsStep = ({ onFinish }: IDetailsForm) => {
   const [isSubmiting, setIsSubmiting] = useState(false);
+  const { details } = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
 
   const {
@@ -25,15 +32,28 @@ const OrderDetailsStep = ({ onFinish, onPrevious }: IDetailsForm) => {
     watch,
     setValue,
     formState: { errors },
-  } = useForm<OrderDetails>();
+  } = useForm<OrderDetailsInput>();
 
-  const onSubmit: SubmitHandler<OrderDetails> = (data: OrderDetails) => {
+  const onSubmit: SubmitHandler<OrderDetailsInput> = (
+    data: OrderDetailsInput,
+  ) => {
     setIsSubmiting(true);
-    dispatch(setDetails(data));
+
+    const today = new Date().toISOString();
+
+    dispatch(
+      setDetails({
+        location: data.location,
+        date: data.date ? data.date.toISOString() : today,
+        time: data.time ? data.time.toISOString() : today,
+        numberOfPeople: data.numberOfPeople,
+      }),
+    );
 
     setTimeout(() => {
+      setIsSubmiting(false);
       onFinish();
-    }, 1000);
+    }, 200);
   };
 
   return (
@@ -70,6 +90,7 @@ const OrderDetailsStep = ({ onFinish, onPrevious }: IDetailsForm) => {
             type="text"
             {...register('location', {
               required: 'The location of the order is required',
+              value: details.location,
             })}
             placeholder="Where do we send your order?"
             error={errors.location?.message}
@@ -79,10 +100,11 @@ const OrderDetailsStep = ({ onFinish, onPrevious }: IDetailsForm) => {
           <DatePicker
             label="Date:"
             placeholder="Select the date of the order"
-            value={watch('date') || new Date()}
+            value={watch('date') || new Date(details.date)}
             {...register('date', {
               required: 'The date of the order is required',
               valueAsDate: true,
+              value: new Date(details.date),
             })}
             onChange={(date) => setValue('date', date)}
             error={errors.date?.message}
@@ -91,10 +113,11 @@ const OrderDetailsStep = ({ onFinish, onPrevious }: IDetailsForm) => {
           <DatePicker
             label="Time:"
             placeholder="Select the time of the order"
-            value={watch('time') || new Date()}
+            value={watch('time') || new Date(details.time)}
             {...register('time', {
               required: 'The time of the order is required',
               valueAsDate: true,
+              value: new Date(details.time),
             })}
             onChange={(time) => setValue('time', time)}
             error={errors.time?.message}
@@ -103,11 +126,11 @@ const OrderDetailsStep = ({ onFinish, onPrevious }: IDetailsForm) => {
 
           <RangeBar
             label="Number of People"
-            value={watch('numberOfPeople')}
+            value={watch('numberOfPeople') || details.numberOfPeople}
             {...register('numberOfPeople', {
               required: 'The number of people is required',
               valueAsNumber: true,
-              value: 10,
+              value: details.numberOfPeople,
             })}
             onChange={(event) =>
               setValue('numberOfPeople', parseInt(event?.target.value))
@@ -116,18 +139,6 @@ const OrderDetailsStep = ({ onFinish, onPrevious }: IDetailsForm) => {
           />
 
           <div className="mt-5 flex space-x-2">
-            <Button
-              size="md"
-              variant="secondary"
-              type="button"
-              onClick={onPrevious}
-              aria-readonly={isSubmiting}
-              disabled={isSubmiting}
-              icon="arrow-left"
-            >
-              Previous
-            </Button>
-
             <Button
               size="md"
               type="submit"

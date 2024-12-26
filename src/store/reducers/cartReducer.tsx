@@ -5,7 +5,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialCartState: CartState = {
   items: [],
-  details: { location: '', date: null, time: null, numberOfPeople: 0 },
+  details: {
+    location: '',
+    date: new Date().toISOString(),
+    time: new Date().toISOString(),
+    numberOfPeople: 5,
+  },
 };
 
 const cartSlice = createSlice({

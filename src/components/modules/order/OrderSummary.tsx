@@ -41,7 +41,7 @@ const OrderTotals = memo(
       <div className="flex justify-between font-medium text-grey-700">
         <p>Persons</p>
         <p className="font-bold text-primary-800">
-          {numberOfPeople} {numberOfPeople === 1 ? 'Person' : 'Persons'}
+          x{numberOfPeople} {numberOfPeople === 1 ? 'Person' : 'Persons'}
         </p>
       </div>
       <div className="flex justify-between font-medium text-grey-700">
