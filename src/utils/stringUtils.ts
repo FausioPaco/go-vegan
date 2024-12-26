@@ -17,5 +17,5 @@ export function pluralizeUnit(value: number, unit: string): string {
     return `${value} ${unit}`;
   }
 
-  return `${value} ${plurals[unit]}`;
+  return `${value} ${plurals[unit.toLocaleLowerCase()]}`;
 }

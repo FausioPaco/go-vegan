@@ -1,13 +1,21 @@
 import { CartState } from '@/types/Cart';
 import { Dish, Dishes } from '@/types/Menu';
+import { OrderDetails } from '@/types/Order';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialCartState: CartState = { items: [] };
+const initialCartState: CartState = {
+  items: [],
+  details: { location: '', date: null, time: null, numberOfPeople: 0 },
+};
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState: initialCartState,
   reducers: {
+    setDetails(state, action: PayloadAction<OrderDetails>) {
+      state.details = action.payload;
+    },
+
     addItem(
       state,
       action: PayloadAction<{
@@ -36,6 +44,7 @@ const cartSlice = createSlice({
           (totalQuantity * currentDish.price) / currentDish.perUnit;
       }
     },
+
     removeItem(state, action: PayloadAction<number>) {
       state.items = state.items.filter((s) => s.dish.id !== action.payload);
     },
@@ -46,6 +55,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, clearCart } = cartSlice.actions;
+export const { setDetails, addItem, removeItem, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

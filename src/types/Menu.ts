@@ -5,6 +5,8 @@ export type MenuCategory = {
   urlImage: string;
 };
 
+export type DishCategory = 'rices' | 'pastas' | 'salads' | 'sauces';
+
 export type Dish = {
   id: number;
   title: string;

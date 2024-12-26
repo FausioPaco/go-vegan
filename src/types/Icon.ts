@@ -29,4 +29,5 @@ export type IconName =
   | 'calendar'
   | 'plus'
   | 'close'
+  | 'serving-dish'
   | 'clock';

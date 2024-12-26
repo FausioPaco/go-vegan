@@ -1,12 +1,19 @@
-import { Dish } from '@/types/Menu';
+import { Dish, DishCategory } from '@/types/Menu';
+import { OrderDetails } from './Order';
 
 export type CartItem = {
-  dishCategory: 'rices' | 'pastas' | 'salads' | 'sauces';
+  dishCategory: DishCategory;
   dish: Dish;
   quantity: number;
   totalPrice: number;
 };
 
+export type DishCategoryCartItems = {
+  items: CartItem[];
+  total: number;
+};
+
 export type CartState = {
+  details: OrderDetails;
   items: CartItem[];
 };

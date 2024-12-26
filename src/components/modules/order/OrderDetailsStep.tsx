@@ -6,13 +6,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { AppDatePicker as DatePicker } from '@/components/ui/datepicker';
 import { Button } from '@/components/ui/button';
 import { Loading } from '@/components/ui/loading';
-
-type IDetailsInput = {
-  location: string;
-  date: Date | null;
-  time: Date | null;
-  numberOfPeople: number;
-};
+import { OrderDetails } from '@/types/Order';
+import { useDispatch } from 'react-redux';
+import { setDetails } from '@/store/reducers/cartReducer';
 
 type IDetailsForm = {
   onFinish: () => void;
@@ -21,17 +17,19 @@ type IDetailsForm = {
 
 const OrderDetailsStep = ({ onFinish, onPrevious }: IDetailsForm) => {
   const [isSubmiting, setIsSubmiting] = useState(false);
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     watch,
     setValue,
     formState: { errors },
-  } = useForm<IDetailsInput>();
+  } = useForm<OrderDetails>();
 
-  const onSubmit: SubmitHandler<IDetailsInput> = (data: IDetailsInput) => {
+  const onSubmit: SubmitHandler<OrderDetails> = (data: OrderDetails) => {
     setIsSubmiting(true);
-    console.log(data);
+    dispatch(setDetails(data));
 
     setTimeout(() => {
       onFinish();

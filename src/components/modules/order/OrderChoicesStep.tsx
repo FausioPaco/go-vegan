@@ -31,12 +31,12 @@ const OrderChoicesStep = ({ onFinish, onPrevious }: IOrderChoiceStepProps) => {
           />
         ))}
       </Tabs>
-      <div className="flex w-full flex-col space-y-8 md:max-w-[95%] md:flex-row md:justify-between md:space-x-20 md:space-y-0">
+      <div className="flex w-full flex-col items-start space-y-8 md:max-w-[95%] md:flex-row md:justify-between md:space-x-20 md:space-y-0">
         <motion.div
           key={activeTab}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0.2, y: -50 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0.2 }}
           transition={{ duration: 0.6, ease: [0.39, 0.24, 0.3, 1] }}
           className="md:min-w-screen-lg"
         >
