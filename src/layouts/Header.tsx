@@ -3,6 +3,7 @@ import { Icon } from '@/components/ui/icon';
 import cn from '@/utils/cn';
 import SideNav from './SideNav';
 import { useCallback, useState } from 'react';
+import { UserAuth } from '@/components/modules/auth';
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
@@ -60,7 +61,7 @@ const Header = () => {
         </nav>
 
         <div className="mx-2">
-          <Icon name="user" className="text-white" />
+          <UserAuth />
         </div>
       </header>
     </>
