@@ -5,6 +5,7 @@ import OrderDetailsStep from './OrderDetailsStep';
 import OrderChoicesStep from './OrderChoicesStep';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store';
+import OrderReviewStep from './OrderReviewStep';
 
 const options = [
   { stepNumber: 1, description: 'Account' },
@@ -57,8 +58,15 @@ const OrderForm = () => {
 
       {currentStep === 3 && (
         <OrderChoicesStep
-          onFinish={() => handleStepChange(3)}
+          onFinish={() => handleStepChange(4)}
           onPrevious={() => handlePreviousStepChange(2)}
+        />
+      )}
+
+      {currentStep === 4 && (
+        <OrderReviewStep
+          onFinish={() => handleStepChange(5)}
+          onPrevious={() => handlePreviousStepChange(4)}
         />
       )}
     </div>

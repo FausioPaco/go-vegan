@@ -4,7 +4,9 @@ import { Input } from '@/components/ui/input';
 import { RootState } from '@/store';
 import { addItem, removeItem } from '@/store/reducers/cartReducer';
 import { Dish, Dishes } from '@/types/Menu';
-import { pluralizeUnit } from '@/utils/stringUtils';
+import { IOrderMenuItemInput } from '@/types/Order';
+import { getDishImagePath } from '@/utils/cart';
+import { formatPrice, pluralizeUnit } from '@/utils/stringUtils';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,10 +14,6 @@ import { useDispatch, useSelector } from 'react-redux';
 type IOrderMenuItem = {
   category: string;
   dish: Dish;
-};
-
-type IOrderMenuItemInput = {
-  quantity: number;
 };
 
 const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
@@ -51,9 +49,6 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
     (cartItem) => cartItem.dish.id === dish.id,
   );
 
-  const getDishImagePath = (category: string, url: string) =>
-    `/menu/${category}/${url}`;
-
   const handleRemoveItem = () => {
     dispatch(removeItem(dish.id));
     reset({ quantity: dish.perUnit });
@@ -74,7 +69,7 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
           {dish.title}
         </h2>
         <p className="mt-2 text-base font-medium text-secondary-800 md:text-xl">
-          ${dish.price} / {`${dish.perUnit} ${dish.unit}`}
+          {formatPrice(dish.price)} / {`${dish.perUnit} ${dish.unit}`}
         </p>
         <p className="mt-2 text-base text-grey-600 md:max-w-[500px]">
           {dish.description}

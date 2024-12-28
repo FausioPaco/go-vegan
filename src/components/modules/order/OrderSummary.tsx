@@ -1,8 +1,8 @@
 import { Icon } from '@/components/ui/icon';
 import { RootState } from '@/store';
-import { DishCategoryCartItems } from '@/types/Cart';
+import { CartItem, DishCategoryCartItems } from '@/types/Cart';
 import { groupCartItemsByCategory } from '@/utils/cart';
-import { pluralizeUnit } from '@/utils/stringUtils';
+import { formatPrice, pluralizeUnit } from '@/utils/stringUtils';
 import { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -14,7 +14,7 @@ type OrderCategoryProps = {
 const OrderCategory = memo(({ category, dishItems }: OrderCategoryProps) => (
   <div className="my-4 animate-fadeIn">
     <h3 className="mb-2 font-bold uppercase text-grey-500">{category}</h3>
-    {dishItems.items.map((item: any) => (
+    {dishItems.items.map((item: CartItem) => (
       <div
         key={item.dish.id}
         className="flex w-full items-end justify-between text-sm"
@@ -23,7 +23,7 @@ const OrderCategory = memo(({ category, dishItems }: OrderCategoryProps) => (
           {item.dish.title} ({pluralizeUnit(item.quantity, item.dish.unit)})
         </p>
         <p className="mb-0 mt-2 font-bold text-primary-800">
-          ${item.totalPrice.toFixed(2)}
+          {formatPrice(item.totalPrice)}
         </p>
       </div>
     ))}
@@ -47,7 +47,7 @@ const OrderTotals = memo(
       <div className="flex justify-between font-medium text-grey-700">
         <p>Total</p>
         <p className="text-xl font-bold text-primary-800">
-          ${totalOrderPrice.toFixed(2) ?? '0.00'}
+          {formatPrice(totalOrderPrice) ?? formatPrice(0)}
         </p>
       </div>
     </div>

@@ -45,6 +45,7 @@ const cartSlice = createSlice({
           totalPrice: (totalQuantity * currentDish.price) / currentDish.perUnit,
         });
       } else {
+        state.items[existingItemIndex].quantity = totalQuantity;
         state.items[existingItemIndex].totalPrice =
           (totalQuantity * currentDish.price) / currentDish.perUnit;
       }

@@ -4,3 +4,7 @@ export type OrderDetails = {
   time: string;
   numberOfPeople: number;
 };
+
+export type IOrderMenuItemInput = {
+  quantity: number;
+};

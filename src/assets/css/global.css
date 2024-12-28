@@ -36,6 +36,22 @@
   ::placeholder {
     @apply text-sm;
   }
+
+  table tr th {
+    @apply px-6 py-4;
+  }
+
+  table tbody tr {
+    @apply border-b border-b-grey-100 transition-colors duration-300;
+  }
+
+  table tbody tr td {
+    @apply px-6 py-3 text-base font-medium;
+  }
+
+  table tbody tr:last-child {
+    @apply border-none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

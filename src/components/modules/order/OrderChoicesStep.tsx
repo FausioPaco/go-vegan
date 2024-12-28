@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
+import { Button } from '@/components/ui/button';
 import { TabItem, Tabs } from '@/components/ui/tabs';
 import { ALL_DISHES } from '@/data/menu';
 import { Dish, Dishes } from '@/types/Menu';
-import { motion } from 'motion/react';
 import OrderMenuItem from './OrderMenuItem';
 import OrderSummary from './OrderSummary';
-import { Button } from '@/components/ui/button';
 
 type IOrderChoiceStepProps = {
   onFinish: () => void;
@@ -31,6 +31,14 @@ const OrderChoicesStep = ({ onFinish, onPrevious }: IOrderChoiceStepProps) => {
           />
         ))}
       </Tabs>
+
+      <div className="my-2 flex w-full flex-col items-center gap-y-2 text-center">
+        <h3 className="texl-xl font-bold text-grey-600 md:text-3xl">
+          Make your choices
+        </h3>
+        <p className="text-grey-500">Select what do you want to eat</p>
+      </div>
+
       <div className="flex w-full flex-col items-start space-y-8 md:max-w-[95%] md:flex-row md:justify-between md:space-x-20 md:space-y-0">
         <motion.div
           key={activeTab}

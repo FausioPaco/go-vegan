@@ -30,4 +30,5 @@ export type IconName =
   | 'plus'
   | 'close'
   | 'serving-dish'
+  | 'pencil'
   | 'clock';
