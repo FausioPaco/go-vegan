@@ -21,3 +21,6 @@ export const groupCartItemsByCategory = (cartItems: CartItem[]) => {
     {} as Record<DishCategory, DishCategoryCartItems>,
   );
 };
+
+export const getDishImagePath = (category: string, url: string) =>
+  `/menu/${category}/${url}`;

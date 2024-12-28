@@ -19,3 +19,16 @@ export function pluralizeUnit(value: number, unit: string): string {
 
   return `${value} ${plurals[unit.toLocaleLowerCase()]}`;
 }
+
+export function truncate(str: string, maxLength: number): string {
+  if (str.length <= maxLength) return str;
+  return str.slice(0, maxLength) + '...';
+}
+
+export function formatPrice(price: number) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 2,
+  }).format(price);
+}
