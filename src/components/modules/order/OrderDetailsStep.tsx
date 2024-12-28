@@ -71,11 +71,11 @@ const OrderDetailsStep = ({ onFinish }: IDetailsForm) => {
       }}
     >
       <div className="w-full md:max-w-[40%]">
-        <div className="my-2 flex w-full flex-col items-center gap-y-2 text-center">
-          <h3 className="texl-xl font-bold text-grey-600 md:text-3xl">
+        <div className="my-8 flex w-full flex-col items-center gap-y-2 text-center">
+          <h3 className="text-3xl font-bold text-grey-600 md:text-4xl">
             About your Order
           </h3>
-          <p className="text-grey-500">
+          <p className="text-lg text-grey-500">
             Provide us information about your order
           </p>
         </div>

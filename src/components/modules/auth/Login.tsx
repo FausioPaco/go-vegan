@@ -38,11 +38,13 @@ const Login = ({ onFinish, onSignUp }: ILoginForm) => {
   return (
     <div className="my-4 flex w-full flex-col items-center justify-center px-4">
       <div className="w-full md:max-w-[40%]">
-        <div className="my-2 flex w-full flex-col items-center gap-y-2 text-center">
-          <h3 className="texl-xl font-bold text-grey-600 md:text-3xl">
+        <div className="my-8 flex w-full flex-col items-center gap-y-2 text-center">
+          <h3 className="texl-3xl font-bold text-grey-600 md:text-4xl">
             Welcome back!
           </h3>
-          <p className="text-grey-500">Log in to create your vegan order</p>
+          <p className="text-lg text-grey-500">
+            Log in to create your vegan order
+          </p>
         </div>
 
         <form

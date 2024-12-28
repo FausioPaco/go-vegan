@@ -18,7 +18,17 @@ const OrderChoicesStep = ({ onFinish, onPrevious }: IOrderChoiceStepProps) => {
 
   return (
     <div className="my-8 flex w-full flex-col items-center justify-center gap-y-2 px-3 md:px-8">
-      <Tabs tabType="bordered" className="w-full md:max-w-[90%] lg:max-w-[60%]">
+      <div className="mb-4 flex w-full flex-col items-center gap-y-2 text-center">
+        <h3 className="text-3xl font-bold text-grey-600 md:text-4xl">
+          Make your choices
+        </h3>
+        <p className="text-lg text-grey-500">Select what do you want to eat</p>
+      </div>
+
+      <Tabs
+        tabType="bordered"
+        className="mb-6 w-full md:max-w-[90%] lg:max-w-[60%]"
+      >
         {categoriesList.map((category, index) => (
           <TabItem
             key={category.toString()}
@@ -31,13 +41,6 @@ const OrderChoicesStep = ({ onFinish, onPrevious }: IOrderChoiceStepProps) => {
           />
         ))}
       </Tabs>
-
-      <div className="my-2 flex w-full flex-col items-center gap-y-2 text-center">
-        <h3 className="texl-xl font-bold text-grey-600 md:text-3xl">
-          Make your choices
-        </h3>
-        <p className="text-grey-500">Select what do you want to eat</p>
-      </div>
 
       <div className="flex w-full flex-col items-start space-y-8 md:max-w-[95%] md:flex-row md:justify-between md:space-x-20 md:space-y-0">
         <motion.div

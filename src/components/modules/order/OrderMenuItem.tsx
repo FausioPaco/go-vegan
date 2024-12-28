@@ -102,7 +102,7 @@ const OrderMenuItem = ({ dish, category }: IOrderMenuItem) => {
               error={errors.quantity?.message}
             />
 
-            <div className="mt-2 flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+            <div className="mt-2 flex space-x-2">
               <Button size="sm" type="submit" icon="plus" className="w-fit">
                 Add now
               </Button>
