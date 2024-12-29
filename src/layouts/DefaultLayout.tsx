@@ -1,13 +1,11 @@
 import { Outlet } from 'react-router-dom';
+import Footer from '@layouts/Footer';
 
 const DefaultLayout = () => {
   return (
     <div className="flex min-h-screen w-full flex-col items-stretch">
-      <header>Header</header>
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <footer>Example Footer</footer>
+      <Outlet />
+      <Footer />
     </div>
   );
 };

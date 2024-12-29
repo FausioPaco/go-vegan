@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -69,7 +70,23 @@ export default {
         '0%': { opacity: '0' },
         '100%': { opacity: '100%' },
       },
+      spinner: {
+        to: {
+          transform: 'rotate(360deg)',
+        },
+      },
+      blink: {
+        '50%': {
+          opacity: '0',
+        },
+      },
     }),
+
+    animation: {
+      fadeIn: 'fadeIn 0.4s ease-in',
+      spinner: 'spinner 0.6s linear infinite',
+      blink: 'blink 1.5s linear infinite',
+    },
   },
   plugins: [],
 } satisfies Config;

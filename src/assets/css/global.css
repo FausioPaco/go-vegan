@@ -12,3 +12,62 @@
   font-display: swap;
   font-style: normal;
 }
+
+@layer base {
+  h1 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  h2 {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  dt {
+    @apply mb-1 text-xs text-grey-500 md:text-sm;
+  }
+
+  p {
+    @apply max-w-[600px] text-sm text-grey-600 md:text-base;
+  }
+
+  dd {
+    @apply max-w-[700px] text-base text-grey-800 md:text-lg;
+  }
+  ::placeholder {
+    @apply text-sm;
+  }
+
+  table tr th {
+    @apply px-6 py-4;
+  }
+
+  table tbody tr {
+    @apply border-b border-b-grey-100 transition-colors duration-300;
+  }
+
+  table tbody tr td {
+    @apply px-6 py-3 text-base font-medium;
+  }
+
+  table tbody tr:last-child {
+    @apply border-none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn {
+    animation: none;
+  }
+
+  .animate-spinner {
+    animation: none;
+  }
+
+  .animate-blink {
+    animation: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
