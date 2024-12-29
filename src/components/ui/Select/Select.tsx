@@ -46,13 +46,13 @@ const Select = forwardRef<HTMLSelectElement, ISelectProps>(
           value={value}
           onChange={onChange}
           className={cn(
-            'w-full rounded border border-grey-300 bg-transparent px-3 py-2 font-sans text-grey-700 outline-none transition duration-300 ease-in focus:border-primary-500 focus:shadow-md active:border-primary-600 active:shadow-md disabled:bg-grey-500',
+            'w-full rounded border border-grey-300 bg-transparent px-3 py-[0.58rem] font-sans text-grey-700 outline-none transition duration-300 ease-in focus:border-primary-500 focus:shadow-md active:border-primary-600 active:shadow-md disabled:bg-grey-500',
             error && 'border-danger-600',
             className,
           )}
           {...props}
         >
-          <option value="">Selecione</option>
+          <option value="">Select</option>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
