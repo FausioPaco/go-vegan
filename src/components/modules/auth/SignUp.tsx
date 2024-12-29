@@ -44,7 +44,7 @@ const SignUp = ({ onFinish, onSignIn }: ISignUpForm) => {
     <div className="my-4 flex w-full flex-col items-center justify-center px-4">
       <div className="w-full md:max-w-[40%]">
         <div className="my-8 flex w-full flex-col items-center text-center">
-          <h3 className="texl-3xl font-bold text-grey-600 md:text-4xl">
+          <h3 className="text-3xl font-bold text-grey-600 md:text-4xl">
             Set up account
           </h3>
           <p className="mt-3 text-lg text-grey-500">
