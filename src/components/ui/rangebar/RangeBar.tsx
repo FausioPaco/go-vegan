@@ -6,7 +6,7 @@ type IRangeBarProps = ComponentProps<'input'> & {
   label: string;
   error?: string;
   className?: string;
-  value: number;
+  value?: number;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 };
 
@@ -24,6 +24,7 @@ const RangeBar = forwardRef<HTMLInputElement, IRangeBarProps>(
       <div className="mt-3 flex w-full flex-col items-center space-y-4">
         <div className="relative w-full">
           <div
+            data-testid="range-hovered"
             className={`absolute left-1/2 -translate-x-1/2 -translate-y-2 transform rounded-md bg-primary-600 px-3 py-1 text-sm font-medium text-white transition-opacity duration-300 ${
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}
@@ -41,6 +42,7 @@ const RangeBar = forwardRef<HTMLInputElement, IRangeBarProps>(
           </label>
           <input
             id={inputId}
+            data-testid="range"
             ref={ref}
             type="range"
             min="1"
