@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react-swc';
 import svgr from 'vite-plugin-svgr';
 import path from 'path';
@@ -16,6 +16,7 @@ export default defineConfig({
       include: '**/*.svg',
     }),
   ],
+
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -25,5 +26,11 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, './src/utils'),
       '@store': path.resolve(__dirname, './src/store'),
     },
+  },
+
+  test: {
+    environment: 'happy-dom',
+    setupFiles: './src/__tests__/setup.ts',
+    globals: true,
   },
 });
