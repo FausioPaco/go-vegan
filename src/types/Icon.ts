@@ -1,3 +1,9 @@
+import { ComponentProps } from 'react';
+
+export type IconProps = ComponentProps<'svg'> & {
+  name: IconName;
+};
+
 export type IconName =
   | 'animals'
   | 'arrow-left'

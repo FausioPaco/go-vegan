@@ -1,10 +1,5 @@
 import { useSVGImport } from '@/hooks/useSVGImport';
-import { IconName } from '@/types/Icon';
-import { ComponentProps } from 'react';
-
-type IconProps = ComponentProps<'svg'> & {
-  name: IconName;
-};
+import { IconProps } from '@/types/Icon';
 
 const Icon = ({ name, ...props }: IconProps) => {
   const { loading, SvgIcon } = useSVGImport(name);
