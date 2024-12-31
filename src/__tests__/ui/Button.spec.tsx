@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { Button } from '@/components/ui/button';
 import { IconProps } from '@/types/Icon';
@@ -13,8 +13,8 @@ vi.mock('@/components/ui/icon', () => ({
 
 describe('Button Component', () => {
   it('should render correctly with children', () => {
-    render(<Button>Button Content</Button>);
-    expect(screen.getByText('Button Content')).toBeInTheDocument();
+    const { getByText } = render(<Button>Button Content</Button>);
+    expect(getByText('Button Content')).toBeInTheDocument();
   });
 
   it('applies correct variant classes', async () => {
@@ -27,19 +27,21 @@ describe('Button Component', () => {
         'flex items-center gap-x-2 text-primary-700 underline outline-none hover:text-primary-800',
     };
 
-    const { rerender } = render(<Button variant="primary">Primary</Button>);
+    const { rerender, getByTestId } = render(
+      <Button variant="primary">Primary</Button>,
+    );
 
-    expect(screen.getByTestId('button')).toHaveClass(
+    expect(getByTestId('button')).toHaveClass(
       ...buttonVariants['primary'].split(' '),
     );
 
     rerender(<Button variant="secondary">Secondary</Button>);
-    expect(screen.getByTestId('button')).toHaveClass(
+    expect(getByTestId('button')).toHaveClass(
       ...buttonVariants['secondary'].split(' '),
     );
 
     rerender(<Button variant="tertiary">Tertiary</Button>);
-    expect(screen.getByTestId('button')).toHaveClass(
+    expect(getByTestId('button')).toHaveClass(
       ...buttonVariants['tertiary'].split(' '),
     );
   });
@@ -51,20 +53,14 @@ describe('Button Component', () => {
       lg: 'px-8 py-4 text-xl md:text-2xl',
     };
 
-    const { rerender } = render(<Button size="sm">Small</Button>);
-    expect(screen.getByTestId('button')).toHaveClass(
-      ...buttonSizes['sm'].split(' '),
-    );
+    const { rerender, getByTestId } = render(<Button size="sm">Small</Button>);
+    expect(getByTestId('button')).toHaveClass(...buttonSizes['sm'].split(' '));
 
     rerender(<Button size="md">Medium</Button>);
-    expect(screen.getByTestId('button')).toHaveClass(
-      ...buttonSizes['md'].split(' '),
-    );
+    expect(getByTestId('button')).toHaveClass(...buttonSizes['md'].split(' '));
 
     rerender(<Button size="lg">Large</Button>);
-    expect(screen.getByTestId('button')).toHaveClass(
-      ...buttonSizes['lg'].split(' '),
-    );
+    expect(getByTestId('button')).toHaveClass(...buttonSizes['lg'].split(' '));
   });
 
   it('renders icon correctly on the left', () => {
@@ -113,12 +109,12 @@ describe('Button Component', () => {
   it('should not trigger onClick event when disabled', () => {
     const handleClick = vi.fn();
 
-    render(
+    const { getByText } = render(
       <Button onClick={handleClick} disabled>
         Disabled
       </Button>,
     );
-    fireEvent.click(screen.getByText('Disabled'));
+    fireEvent.click(getByText('Disabled'));
 
     expect(handleClick).not.toHaveBeenCalled();
   });
