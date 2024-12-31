@@ -28,6 +28,7 @@ const Tabs = ({
   return (
     <section
       id={tabId}
+      data-testid="tabs"
       className={cn('mt-6 w-full overflow-hidden', className)}
       aria-multiselectable="false"
     >
