@@ -82,6 +82,7 @@ const SignUp = ({ onFinish, onSignIn }: ISignUpForm) => {
           <Input
             label="Email:"
             type="email"
+            autoComplete="username"
             {...register('email', {
               required: 'Your name is required',
               pattern: {
@@ -96,6 +97,7 @@ const SignUp = ({ onFinish, onSignIn }: ISignUpForm) => {
           <Input
             label="Password:"
             type="password"
+            autoComplete="new-password"
             {...register('password', {
               required: 'Your password is required',
               minLength: {
@@ -110,6 +112,7 @@ const SignUp = ({ onFinish, onSignIn }: ISignUpForm) => {
           <Input
             label="Confirm password:"
             type="password"
+            autoComplete="new-password"
             {...register('passwordConfirm', {
               required: 'You must confirm your password',
               validate: (value) =>
