@@ -27,6 +27,7 @@ const TextArea = forwardRef<HTMLTextAreaElement, ITextAreaProps>(
 
         <textarea
           id={textInputId}
+          data-testid="textarea"
           ref={ref}
           value={value}
           className={cn(
