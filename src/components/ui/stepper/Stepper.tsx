@@ -1,11 +1,7 @@
 import { useId } from 'react';
 import StepperItem from './StepperItem';
 import { StepperContext } from './StepperContext';
-
-type StepperOption = {
-  stepNumber: number;
-  description: string;
-};
+import { StepperOption } from '@/types/Stepper';
 
 type IStepperProps = {
   value: number;
@@ -38,8 +34,9 @@ const Stepper = ({
 
         <div className="relative mb-4 hidden items-center justify-between md:flex md:space-x-32">
           <progress
-            className="[&::-webkit-progress-value]:ease absolute top-[30%] z-10 mb-7 ml-[15%] block h-1 w-[80%] appearance-none overflow-hidden rounded-lg bg-grey-100 [&::-moz-progress-bar]:bg-primary-600 [&::-ms-fill]:bg-primary-600 [&::-webkit-progress-bar]:bg-grey-100 [&::-webkit-progress-value]:bg-primary-600 [&::-webkit-progress-value]:transition-all [&::-webkit-progress-value]:duration-300"
             id={stepperId}
+            data-testid="progressbar"
+            className="[&::-webkit-progress-value]:ease absolute top-[30%] z-10 mb-7 ml-[15%] block h-1 w-[80%] appearance-none overflow-hidden rounded-lg bg-grey-100 [&::-moz-progress-bar]:bg-primary-600 [&::-ms-fill]:bg-primary-600 [&::-webkit-progress-bar]:bg-grey-100 [&::-webkit-progress-value]:bg-primary-600 [&::-webkit-progress-value]:transition-all [&::-webkit-progress-value]:duration-300"
             value={value}
             max={max}
           ></progress>

@@ -42,6 +42,7 @@ const Button = ({
 
   return (
     <button
+      data-testid="button"
       className={cn(
         'group min-w-[96px] font-medium transition-all duration-300 focus:outline-none focus:ring focus:ring-primary-500',
         buttonVariants[variant],
@@ -55,6 +56,7 @@ const Button = ({
     >
       {icon && !readonly && iconPosition == 'left' && (
         <Icon
+          data-testid="buttonIcon"
           name={icon}
           className={
             variant === 'primary'
@@ -66,6 +68,7 @@ const Button = ({
       <span>{children}</span>
       {icon && !readonly && iconPosition == 'right' && (
         <Icon
+          data-testid="buttonIcon"
           name={icon}
           className={
             variant === 'primary'

@@ -6,19 +6,13 @@ import { Select } from '@/components/ui/select';
 import { TextArea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Loading } from '@/components/ui/loading';
+import { ContactInput } from '@/types/Contact';
 
 const SUBJECTS = [
   { label: 'Orders', value: 'Orders' },
   { label: 'Menu', value: 'Menu' },
   { label: 'Other', value: 'Other' },
 ] as Option[];
-
-type ContactInputs = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
 
 type IContactForm = {
   onFinish: () => void;
@@ -31,15 +25,15 @@ const ContactForm = ({ onFinish }: IContactForm) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ContactInputs>();
+  } = useForm<ContactInput>();
 
-  const onSubmit: SubmitHandler<ContactInputs> = (data) => {
+  const onSubmit: SubmitHandler<ContactInput> = (data) => {
     setIsSubmiting(true);
     console.log(data);
+    onFinish();
+    // setTimeout(() => {
 
-    setTimeout(() => {
-      onFinish();
-    }, 1000);
+    // }, 1000);
   };
 
   return (
@@ -47,16 +41,16 @@ const ContactForm = ({ onFinish }: IContactForm) => {
       <p className="mb-2 text-grey-500">
         Please fill out our contact form and we will get back to you shortly.
       </p>
-      <form aria-busy={isSubmiting} onSubmit={handleSubmit(onSubmit)}>
+      <form
+        data-testid="contact-form"
+        aria-busy={isSubmiting}
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <Input
           label="Name:"
           type="text"
           {...register('name', {
             required: 'Your name is required',
-            pattern: {
-              value: /^[A-Za-z]+$/i,
-              message: 'Must be a valid name',
-            },
           })}
           placeholder="Enter your full name"
           error={errors.name?.message}
@@ -90,18 +84,18 @@ const ContactForm = ({ onFinish }: IContactForm) => {
         <TextArea
           label="Message:"
           rows={8}
-          {...register('name', {
+          {...register('message', {
             required: 'Your message is required',
           })}
           placeholder="Describe your message here"
-          error={errors.name?.message}
+          error={errors.message?.message}
           readOnly={isSubmiting}
         />
 
         <Button
           size="md"
           type="submit"
-          onClick={() => onSubmit}
+          onClick={handleSubmit(onSubmit)}
           aria-readonly={isSubmiting}
         >
           {isSubmiting ? <Loading size="sm" /> : 'Send message'}

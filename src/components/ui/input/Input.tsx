@@ -23,6 +23,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
         </label>
 
         <input
+          data-testid="input"
           id={inputId}
           ref={ref}
           value={value}
@@ -36,7 +37,11 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
           {...props}
         />
 
-        {error && <InputError id={inputId}>{error}</InputError>}
+        {error && (
+          <InputError id={inputId} data-testd="error">
+            {error}
+          </InputError>
+        )}
         {textTip && (
           <small className="text-label mt-2 block truncate text-xs font-medium text-grey-600">
             {textTip}

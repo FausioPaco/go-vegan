@@ -16,9 +16,12 @@ const StepperItem = ({
 }: IStepperItemProps) => {
   const { activeOption, setActiveOption, stepsTaken } = useStepperContext();
 
-  const handleSetActiveOption = useCallback((stepNumber: number) => {
-    if (enableSkip) setActiveOption(stepNumber);
-  }, []);
+  const handleSetActiveOption = useCallback(
+    (stepNumber: number) => {
+      if (enableSkip) setActiveOption(stepNumber);
+    },
+    [enableSkip, setActiveOption],
+  );
 
   return (
     <div
@@ -26,12 +29,14 @@ const StepperItem = ({
       onClick={() => handleSetActiveOption(stepNumber)}
     >
       <button
+        data-testid={`step-${stepNumber}-button`}
         className={cn(
           'text-medium flex size-[40px] items-center justify-center rounded-full border-none bg-grey-25 text-center text-grey-500 aria-expanded:bg-primary-600 aria-expanded:text-white',
           stepsTaken.includes(stepNumber) && 'bg-primary-600 text-white',
         )}
         type="button"
         aria-expanded={activeOption === stepNumber}
+        onClick={() => handleSetActiveOption(stepNumber)}
       >
         {stepsTaken.includes(stepNumber) ? (
           <Icon

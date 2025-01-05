@@ -48,7 +48,7 @@ const OrderForm = () => {
     setStepsTaken((prevStepsTaken) => [...prevStepsTaken, 5]);
 
     dispatch(clearCart());
-  }, []);
+  }, [dispatch]);
 
   const handleNavigate = () => {
     navigate('/');
@@ -57,7 +57,7 @@ const OrderForm = () => {
 
   return (
     <div className="my-8">
-      {currentStep > 5 && (
+      {currentStep <= 5 && (
         <Stepper
           value={(currentStep / options.length) * 100}
           max={100}

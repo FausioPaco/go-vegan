@@ -40,6 +40,7 @@ const Select = forwardRef<HTMLSelectElement, ISelectProps>(
         </label>
         <select
           id={selectId}
+          data-testid="select"
           ref={ref}
           aria-label={ariaLabel}
           aria-describedby={error ? `error-${selectId}` : undefined}

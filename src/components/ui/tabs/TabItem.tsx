@@ -41,6 +41,7 @@ const TabItem = ({
 
   return (
     <li
+      data-testid="tab-item"
       role="presentation"
       className={cn('w-full', {
         'md:border-b-2 md:border-b-primary-600':
