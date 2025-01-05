@@ -18,7 +18,18 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+
+    /* Path Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@store/*": ["src/store/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
   "include": ["vite.config.ts"]
 }
