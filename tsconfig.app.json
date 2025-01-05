@@ -25,7 +25,7 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
       "components/*": ["./components/*"],
       "@components/*": ["src/components/*"],
       "@assets/*": ["src/assets/*"],
@@ -38,8 +38,5 @@
       "utils/*": ["src/utils/*"]
     }
   },
-  "include": ["src/**/*", "tailwind.config.ts"],
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  }
+  "include": ["src", "src/**/*", "tailwind.config.ts"]
 }
