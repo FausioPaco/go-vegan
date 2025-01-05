@@ -26,6 +26,7 @@ export const Loading = ({
 
   return (
     <div
+      data-testid="loading"
       role="status"
       className={cn(
         'relative animate-fadeIn',
@@ -34,7 +35,7 @@ export const Loading = ({
     >
       <span
         className={cn(
-          'animate-spinner border-[rgba(255, 255, 255, 0)] relative block rounded-full border-l-2 border-t-2 border-solid border-r-transparent',
+          'border-[rgba(255, 255, 255, 0)] relative block animate-spinner rounded-full border-l-2 border-t-2 border-solid border-r-transparent',
           loadingSizes[size],
           loadingColors[color],
         )}

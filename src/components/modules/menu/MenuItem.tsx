@@ -1,13 +1,16 @@
-import { Dish } from '@/types/Menu';
+import { Dish, DishCategory } from '@/types/Menu';
 
 type IMenuItem = {
-  category: string;
+  category: DishCategory;
   dish: Dish;
 };
 
 const MenuItem = ({ dish, category }: IMenuItem) => {
   return (
-    <div className="flex flex-col gap-y-2 p-4 md:flex-row md:gap-x-8 md:gap-y-0">
+    <div
+      data-testid="menu-item"
+      className="flex flex-col gap-y-2 p-4 md:flex-row md:gap-x-8 md:gap-y-0"
+    >
       <img
         width={520}
         height={400}
