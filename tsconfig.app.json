@@ -38,5 +38,8 @@
       "utils/*": ["src/utils/*"]
     }
   },
-  "include": ["src/**/*", "tailwind.config.ts"]
+  "include": ["src/**/*", "tailwind.config.ts"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }
