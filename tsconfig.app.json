@@ -20,6 +20,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+    "forceConsistentCasingInFileNames": false,
 
     /* Path Aliases */
     "baseUrl": ".",
@@ -32,5 +33,5 @@
       "@utils/*": ["src/utils/*"]
     }
   },
-  "include": ["src", "tailwind.config.ts"]
+  "include": ["src/**/*", "tailwind.config.ts"]
 }
