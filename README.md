@@ -14,7 +14,6 @@ This project originated from my specialization in User Experience Design (UX) at
 4. [Usage](#usage)
 5. [Testing](#testing)
 6. [Contributing](#contributing)
-7. [License](#license)
 
 ## Features
 
