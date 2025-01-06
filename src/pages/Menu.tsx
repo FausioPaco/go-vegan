@@ -1,4 +1,4 @@
-import Meta from '@/components/meta';
+import Meta from '@/components/Meta';
 import { MenuHero, MenuList } from '@/components/modules/menu';
 import { motion } from 'motion/react';
 

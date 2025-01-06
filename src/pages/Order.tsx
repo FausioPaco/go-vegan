@@ -1,4 +1,4 @@
-import Meta from '@/components/meta';
+import Meta from '@/components/Meta';
 import { OrderForm, OrderHero } from '@/components/modules/order';
 import { motion } from 'motion/react';
 

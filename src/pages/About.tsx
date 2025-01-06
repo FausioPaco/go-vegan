@@ -1,4 +1,4 @@
-import Meta from '@/components/meta';
+import Meta from '@/components/Meta';
 import { motion } from 'motion/react';
 import {
   AboutBeliefs,
