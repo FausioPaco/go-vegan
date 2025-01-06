@@ -6,6 +6,10 @@ This project originated from my specialization in User Experience Design (UX) at
   <img src="./public/go-vegan-cover.jpg" alt="Go vegan Mockups" width="470" />
 </div>
 
+# Preview
+
+You can check the demo app [here](https://goveganapp.fausiopaco.co.mz)
+
 ## Table of Contents
 
 1. [Features](#features)
