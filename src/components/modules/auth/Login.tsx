@@ -29,10 +29,7 @@ const Login = ({ onFinish, onSignUp }: ILoginForm) => {
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
     setIsSubmiting(true);
     dispatch(login({ name: 'John Doe', email: data.email }));
-
-    setTimeout(() => {
-      onFinish();
-    }, 1000);
+    onFinish();
   };
 
   return (
@@ -80,7 +77,7 @@ const Login = ({ onFinish, onSignUp }: ILoginForm) => {
             <Button
               size="md"
               type="submit"
-              onClick={() => onSubmit}
+              onClick={() => handleSubmit(onSubmit)}
               aria-readonly={isSubmiting}
               readonly={isSubmiting}
               className="mt-5"
