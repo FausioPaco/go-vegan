@@ -29,7 +29,10 @@ const Login = ({ onFinish, onSignUp }: ILoginForm) => {
   const onSubmit: SubmitHandler<LoginInputs> = (data) => {
     setIsSubmiting(true);
     dispatch(login({ name: 'John Doe', email: data.email }));
-    onFinish();
+
+    setTimeout(() => {
+      onFinish();
+    }, 1000);
   };
 
   return (

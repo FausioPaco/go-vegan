@@ -84,7 +84,7 @@ const SignUp = ({ onFinish, onSignIn }: ISignUpForm) => {
             type="email"
             autoComplete="username"
             {...register('email', {
-              required: 'Your name is required',
+              required: 'Your email is required',
               pattern: {
                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                 message: 'Must be a valid email',

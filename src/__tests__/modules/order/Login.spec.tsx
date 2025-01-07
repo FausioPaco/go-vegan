@@ -1,9 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi, afterEach, beforeEach } from 'vitest';
 import userReducer from '@store/reducers/userReducer';
 import { Provider } from 'react-redux';
 import { Login } from '@/components/modules/auth';
 import { act, fireEvent, render, screen } from '@testing-library/react';
+
+beforeEach(() => {
+  vi.useFakeTimers();
+});
+
+afterEach(() => {
+  vi.useRealTimers();
+});
 
 describe('Login Component', () => {
   const mockOnFinish = vi.fn();
@@ -83,6 +91,8 @@ describe('Login Component', () => {
 
       fireEvent.submit(nextStepButton);
     });
+
+    vi.advanceTimersByTime(1000);
 
     expect(mockOnFinish).toHaveBeenCalled();
   });
